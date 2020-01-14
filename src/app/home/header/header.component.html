@@ -1,22 +1,25 @@
-<!--<div style="margin: 0px; padding: 0px; box-sizing: border-box; display: flex; justify-content: space-around">-->
+<div id="nav">
   <nz-header style="color: white; background-color: white">
     <div nz-row nzType="flex" nzJustify="space-between">
       <div nz-col nzSpan="4" class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4">
-        <div class="logo" style="color: black">Logo</div>
+<!--        <div class="logo" style="color: black">Logo</div>-->
+        <h3><img src="../../../assets/test_logo.png" alt="logo" style="max-height: 25px">Logo</h3>
       </div>
-      <div nz-col nzSpan="12" id="nav" class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-16 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20">
+      <div nz-col nzSpan="12" class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-14 ant-col-lg-17 ant-col-xl-17 ant-col-xxl-18">
         <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu">
           <li nz-menu-item routerLink="/home">главная</li>
           <li nz-menu-item class="ant-menu-item" routerLink="./howitworks">как это работает</li>
           <li nz-menu-item routerLink="./pricing">цены</li>
           <li nz-menu-item routerLink="./about">о нас</li>
           <li nz-menu-item routerLink="./contact">контакты</li>
-          <li nz-menu-item (click)="onLogin()">вход</li>
         </ul>
+      </div>
+      <div nz-col nzSpan="2" class="nav nav-hide ant-col ant-col-xs-2 ant-col-sm-2 ant-col-md-2 ant-col-lg-2 ant-col-xl-2 ant-col-xxl-2">
+        <button nz-button nzType="default" (click)="onLogin()">вход</button>
       </div>
     </div>
   </nz-header>
-<!--</div>-->
+</div>
 
 
 <!--<ul nz-menu nzMode="horizontal">-->
