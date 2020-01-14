@@ -1,0 +1,86 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Вход" (nzOnCancel)="handleCancel()">
+  <div>
+    <form nz-form class="login-form">
+
+      <nz-tabset>
+
+        <nz-tab nzTitle="По телефону">
+          <nz-form-item>
+            <div nz-row>
+              <div nz-col nzSpan="18" nzOffset="3">
+                <nz-form-control nzErrorTip="Please input your username!">
+                  <nz-input-group nzPrefixIcon="user">
+                    <input type="text" nz-input formControlName="userName" placeholder="+7 701 123 0055" />
+                  </nz-input-group>
+                </nz-form-control>
+              </div>
+            </div>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control>
+              <div nz-row>
+                <div nz-col nzSpan="6" nzOffset="3">
+                  <input nz-input formControlName="captcha" id="captcha" placeholder="1234" />
+                </div>
+                <div nz-col nzSpan="11" nzOffset="1">
+                  <button nz-button (click)="getOTP($event)" nzBlock>Запросить СМС код</button>
+                </div>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-tab>
+
+        <nz-tab nzTitle="По почте">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your username!">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="userName" placeholder="Логин или номер тел." />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your Password!">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="password" placeholder="Пароль" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-tab>
+
+        <nz-tab nzTitle="Соцсети">
+          <div class="social-login">
+            <nz-form-item>
+              <button id="google-btn" nzBlock nz-button [nzSize]="'large'" nzType="default">
+                <img src="../../../assets/google_logo.svg">Войти с помощью Google
+              </button>
+            </nz-form-item>
+            <nz-form-item id="fb-form-button">
+              <button id="fb-btn" nzBlock nz-button [nzSize]="'large'" nzType="default">
+                <img src="../../../assets/fb_logo.svg">Войти с помощью Facebook
+              </button>
+            </nz-form-item>
+          </div>
+        </nz-tab>
+
+      </nz-tabset>
+
+
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox formControlName="remember">
+            <span>Remember me</span>
+          </label>
+          <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
+          <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+          Or
+          <a>register now!</a>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+  <div *nzModalFooter>
+    <span>Modal Footer: </span>
+    <button nz-button nzType="default" (click)="handleCancel()">Custom Callback</button>
+    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>
+  </div>
+</nz-modal>

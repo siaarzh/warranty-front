@@ -1,0 +1,52 @@
+$google-color: #29303B
+$google-color-disabled: rgba(0,0,0,0.25)
+$google-bg-color: #FFF
+$google-bg-color-hover: rgba(0,0,0,0.05)
+$google-bg-color-disabled: #F5F5F5
+$fb-color: #FFF
+$fb-bg-color: #1A538A
+$fb-bg-color-hover: #164675
+$fb-bg-color-disabled: rgba(26,83,138,0.5)
+
+.social-login
+  //button
+  //  height: 48px
+  img
+    height: 24px
+    padding-right: 10px
+
+  #fb-btn
+    color: $fb-color
+    background-color: $fb-bg-color
+    border-color: $fb-bg-color
+    &:hover:enabled
+      color: $fb-color
+      background-color: $fb-bg-color-hover
+      border-color: $fb-bg-color-hover
+    &:disabled
+      filter: grayscale(100%) opacity(50%)
+
+  #google-btn
+    color: $google-color
+    background-color: $google-bg-color
+    &:hover:enabled
+      // TODO: :hover:enabled
+      color: $google-color
+      background-color: $google-bg-color-hover
+      border-color: $google-bg-color-hover
+    &:disabled
+      //color: $google-color-disabled
+      //background-color: $google-bg-color-disabled
+      filter: grayscale(100%) opacity(50%)
+      img
+        filter: invert(0.5)
+// TODO: Fix centering the tabs
+:host ::ng-deep .ant-tabs
+  &-nav
+    display: flex
+
+    .ant-tabs-tab
+      flex-grow: 1
+      margin-right: 0px
+      width: 100%
+      text-align: center

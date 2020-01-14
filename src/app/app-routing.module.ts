@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) }
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'warranties', pathMatch: 'full', redirectTo: '/warranties' },
+  // { path: 'welcome', loadChildren: () => import('./home/welcome/welcome.module').then(m => m.WelcomeModule) },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
 ];
 
 @NgModule({

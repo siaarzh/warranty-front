@@ -1,0 +1,58 @@
+<!--TODO: Move styles out of template-->
+<nz-layout class="app-layout">
+  <nz-sider nzTheme="light" class="menu-sidebar" style="box-shadow: none; background-color: #E8E8E8"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed">
+    <div class="sidebar-logo" style="background-color: white">
+      <a routerLink="/welcome">
+        <img src="https://image.flaticon.com/icons/png/512/861/861687.png" alt="logo">
+        <h1 style="color: #564787">Warranty</h1>
+      </a>
+    </div>
+    <ul nz-menu nzMode="vertical" [nzInlineCollapsed]="isCollapsed" style="color: #564787" style="background-color: #E8E8E8">
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Notifications' : ''">
+        <i nz-icon nzType="mail" nzTheme="fill" style="color: #564787"></i>
+        <nz-badge nzDot [nzStyle]="{transform: isCollapsed ? 'translate(-40%, -160%)' : 'translate(-220%, -140%)'}"></nz-badge>
+        <span *ngIf="!isCollapsed">Notifications</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Warranties' : ''">
+        <i nz-icon nzType="safety-certificate" nzTheme="fill" style="color: #564787"></i>
+        <nz-badge nzDot [nzStyle]="{transform: isCollapsed ? 'translate(-40%, -160%)' : 'translate(-220%, -140%)'}"></nz-badge>
+        <span *ngIf="!isCollapsed">Warranties</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Search' : ''">
+        <i nz-icon nzType="search" nzTheme="outline" style="color: #564787"></i>
+        <span *ngIf="!isCollapsed">Search</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Help' : ''">
+        <i nz-icon nzType="question-circle" nzTheme="outline" style="color: #564787"></i>
+        <span *ngIf="!isCollapsed">Help</span>
+      </li>
+
+      <li nz-submenu>
+        <span title><nz-avatar nzIcon="user"></nz-avatar>John Doe</span>
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/profile">Profile</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/settings">Settings</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            Toggle Dark Theme
+            <nz-switch style="flood-color: green"></nz-switch>
+          </li>
+          <li nz-menu-item>
+            <a>Log out</a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <h1>Welcome Component</h1>
+  </nz-layout>
+</nz-layout>

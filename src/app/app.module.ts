@@ -12,6 +12,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 import { NgZorroAntdModule, NZ_I18N, en_US, NzBreadCrumbModule } from 'ng-zorro-antd';
+import { HomeModule } from './home/home.module';
 
 registerLocaleData(en);
 
@@ -26,7 +27,8 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NzBreadCrumbModule
+    NzBreadCrumbModule,
+    HomeModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
