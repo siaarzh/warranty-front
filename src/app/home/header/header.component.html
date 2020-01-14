@@ -8,9 +8,9 @@
         <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu">
           <li nz-menu-item routerLink="/home">главная</li>
           <li nz-menu-item class="ant-menu-item" routerLink="./howitworks">как это работает</li>
-          <li nz-menu-item>цены</li>
-          <li nz-menu-item>о нас</li>
-          <li nz-menu-item>контакты</li>
+          <li nz-menu-item routerLink="./pricing">цены</li>
+          <li nz-menu-item routerLink="./about">о нас</li>
+          <li nz-menu-item routerLink="./contact">контакты</li>
           <li nz-menu-item (click)="onLogin()">вход</li>
         </ul>
       </div>
