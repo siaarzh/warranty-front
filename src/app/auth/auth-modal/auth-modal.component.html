@@ -1,52 +1,68 @@
 <nz-modal [(nzVisible)]="isVisible" nzTitle="Вход" (nzOnCancel)="handleCancel()">
   <div>
-    <form nz-form class="login-form">
-
       <nz-tabset>
 
+        <!-- OTP VERIFICATION LOGIN FORM -->
         <nz-tab nzTitle="По телефону">
-          <nz-form-item>
-            <div nz-row>
-              <div nz-col nzSpan="18" nzOffset="3">
-                <nz-form-control nzErrorTip="Please input your username!">
-                  <nz-input-group nzPrefixIcon="user">
-                    <input type="text" nz-input formControlName="userName" placeholder="+7 701 123 0055" />
-                  </nz-input-group>
+          <form nz-form class="login-form" [formGroup]="authOTPForm">
+            <nz-form-item>
+              <div nz-row>
+                  <nz-form-label [nzSpan]="5" nzOffset="2">Моб. номер</nz-form-label>
+                  <nz-form-control [nzSpan]="15" nzErrorTip="Введите номер мобильного телефона" nzExtra="{{ authOTPForm.get('phone').value }}">
+                    <nz-input-group nzPrefixIcon="mobile">
+                      <input nz-input  id="phone" formControlName="phone" type="tel" value="+7" placeholder="+7 (777) 111 7777" [imask]="{mask: '+{7} (000) 000 0000'}" [unmask]="true"/>
+                    </nz-input-group>
+                  </nz-form-control>
+              </div>
+            </nz-form-item>
+            <nz-form-item>
+              <div nz-row *ngIf="!OTPRequested">
+                <nz-form-label [nzSpan]="5" nzOffset="2">СМС код</nz-form-label>
+                <div nz-col [nzSpan]="15" nzOffset="0">
+                  <button nz-button (click)="getOTP()" nzBlock>Запросить СМС код</button>
+                </div>
+              </div>
+              <div nz-row *ngIf="OTPRequested">
+                <nz-form-control>
+                  <nz-form-label [nzSpan]="5" nzOffset="2">СМС код</nz-form-label>
+                  <div nz-col nzSpan="15" formArrayName="otp">
+                    <nz-input-group>
+                      <div nz-row nzType="flex" nzJustify="space-between">
+                        <div nz-col nzSpan="3" nzOffset="0" *ngFor="let OTPControl of OTPControls;  index as i">
+                          <input nz-input nzSize="large" #OTPFormRow type="text" formControlName="{{ i }}" class="form-control" maxlength="1" (keyup)="keyUpEvent($event, i)" style="font-weight: bolder">
+                        </div>
+                      </div>
+                    </nz-input-group>
+                  </div>
                 </nz-form-control>
               </div>
-            </div>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control>
-              <div nz-row>
-                <div nz-col nzSpan="6" nzOffset="3">
-                  <input nz-input formControlName="captcha" id="captcha" placeholder="1234" />
-                </div>
-                <div nz-col nzSpan="11" nzOffset="1">
-                  <button nz-button (click)="getOTP($event)" nzBlock>Запросить СМС код</button>
-                </div>
-              </div>
-            </nz-form-control>
-          </nz-form-item>
+            </nz-form-item>
+          </form>
         </nz-tab>
+        <!-- OTP VERIFICATION LOGIN FORM -->
 
-        <nz-tab nzTitle="По почте">
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Please input your username!">
-              <nz-input-group nzPrefixIcon="user">
-                <input type="text" nz-input formControlName="userName" placeholder="Логин или номер тел." />
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Please input your Password!">
-              <nz-input-group nzPrefixIcon="lock">
-                <input type="password" nz-input formControlName="password" placeholder="Пароль" />
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
-        </nz-tab>
+        <!-- EMAIL LOGIN FORM -->
+          <nz-tab nzTitle="По почте">
+            <form nz-form class="login-form" [formGroup]="authEmailForm">
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your username!">
+                  <nz-input-group nzPrefixIcon="user">
+                    <input type="text" nz-input formControlName="email" placeholder="Логин или номер тел." />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Password!">
+                  <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input formControlName="password" placeholder="Пароль" />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </nz-tab>
+        <!-- EMAIL LOGIN FORM -->
 
+        <!-- SOCIAL LOGIN FORM -->
         <nz-tab nzTitle="Соцсети">
           <div class="social-login">
             <nz-form-item>
@@ -61,26 +77,28 @@
             </nz-form-item>
           </div>
         </nz-tab>
+        <!-- SOCIAL LOGIN FORM -->
 
       </nz-tabset>
 
 
-      <nz-form-item>
-        <nz-form-control>
-          <label nz-checkbox formControlName="remember">
-            <span>Remember me</span>
-          </label>
-          <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
-          <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
-          Or
-          <a>register now!</a>
-        </nz-form-control>
-      </nz-form-item>
-    </form>
+<!--      <nz-form-item>-->
+<!--        <nz-form-control>-->
+<!--          <label nz-checkbox formControlName="remember">-->
+<!--            <span>Remember me</span>-->
+<!--          </label>-->
+<!--          <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>-->
+<!--          <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>-->
+<!--          Or-->
+<!--          <a>register now!</a>-->
+<!--        </nz-form-control>-->
+<!--      </nz-form-item>-->
+
   </div>
   <div *nzModalFooter>
     <span>Modal Footer: </span>
-    <button nz-button nzType="default" (click)="handleCancel()">Custom Callback</button>
+<!--    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>-->
+    <button nz-button nzType="default" (click)="onReset()">Reset</button>
     <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>
   </div>
 </nz-modal>
