@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Subscription, timer } from 'rxjs';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthModalService } from './auth-modal.service';
@@ -9,21 +9,28 @@ import { AuthModalService } from './auth-modal.service';
   templateUrl: './auth-modal.component.html',
   styleUrls: ['./auth-modal.component.sass']
 })
-export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AuthModalComponent implements OnInit, OnDestroy {
+  // Modal
   private authModalSub: Subscription;
-  private authOTPSub: Subscription;
-  private rowsSub: Subscription;
   isVisible = false;
   isConfirmLoading = false;
-  authOTPForm: FormGroup;
-  authEmailForm: FormGroup;
-  selectedIndex = 0;
+  selectedAuthModalTab = 0;
 
   // OTP
+  private authOTPSub: Subscription;
+  private rowsSub: Subscription;
+  private OTPTimer: Subscription;
+  authOTPForm: FormGroup;
   OTPRequested = false;
+  OTPTimerStarted = false;
+  OTPTimeLeft: number = null;
+  OTPRememberPhone = true;
   @Input() OTPLength = 4;
   @ViewChildren('OTPFormRow') rows: QueryList<ElementRef>;
   @ViewChild('PhoneInput', {static: true}) phoneRef: ElementRef;
+
+  // EMAIL
+  authEmailForm: FormGroup;
 
   constructor(
     private authModalService: AuthModalService,
@@ -33,14 +40,10 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
     this.authModalSub = this.authModalService.isShown.subscribe((show: boolean) => {
       this.isVisible = show;
     });
-    this.initForms();
+    this.initializeForms();
     this.authOTPSub = this.authOTPForm.valueChanges.subscribe((v) => {
-      console.log(v);
+      console.log(this.authOTPForm.getRawValue());
     });
-  }
-
-  ngAfterViewInit() {
-
   }
 
   setFocus() {
@@ -53,6 +56,7 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
     this.authModalSub.unsubscribe();
     this.authOTPSub.unsubscribe();
     this.rowsSub.unsubscribe();
+    this.OTPTimer.unsubscribe();
   }
 
   handleCancel() {
@@ -63,9 +67,15 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
     // ...
   }
 
-  private initForms() {
+  private initializeForms() {
     // OTP login form init
-    const userPhone = ' ';
+    let userPhone = ' ';
+    // TODO:
+    //  - issue 001:
+    //      "Closing and opening modal with remember=false and having phone.length!=0 will not autofill phone control"
+    if (this.authModalService.phone) {
+      userPhone = this.authModalService.phone;
+    }
     const OTPInputs = new FormArray([]);
 
     // create OTP object
@@ -84,6 +94,7 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
         ],
       ),
       otp: OTPInputs,
+      remember: new FormControl(this.OTPRememberPhone),
     });
 
     // email login form init:
@@ -96,20 +107,37 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  get OTPControls() { // a getter!
+  get OTPControls() {
     return (this.authOTPForm.get('otp') as FormArray).controls;
   }
 
-  getOTP() {
-    // TODO: Create OTP timeout functionality
-    this.OTPRequested = true;
-    this.authOTPForm.controls.phone.disable();
-    this.authOTPForm.patchValue({
-      otp: ['', '', '', ''],
+  startOTPTimer() {
+    if (this.OTPTimer) {
+      this.OTPTimer.unsubscribe();
+    }
+    this.OTPTimeLeft = 60;
+    this.OTPTimerStarted = true;
+    this.OTPTimer = timer(0, 1000).subscribe(val => {
+      if (this.OTPTimeLeft > 0) {
+        this.OTPTimeLeft = 59 - val;
+      } else {
+        this.OTPTimerStarted = false;
+      }
     });
+  }
+
+  getOTP() {
+    this.OTPRequested = true;
+    if (this.authOTPForm.controls.remember.value) {
+      this.authModalService.setPhone(this.authOTPForm.controls.phone.value);
+    }
+    this.authOTPForm.controls.phone.disable();
+    this.authOTPForm.controls.otp.reset();
     this.rowsSub = this.rows.changes.subscribe(() => {
       this.setFocus();
     });
+    this.rowsSub.unsubscribe();
+    this.startOTPTimer();
   }
 
   keyUpEvent(event, index) {
@@ -131,13 +159,18 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
   public onReset() {
     this.authOTPForm.reset();
     this.authOTPForm.patchValue({
-      phone: ' '
+      phone: ' ',
+      remember: true,
     });
+    this.authModalService.setPhone(null);
     this.OTPRequested = false;
     this.authOTPForm.controls.phone.enable();
     this.authEmailForm.reset();
+    if (this.OTPTimer) {
+      this.OTPTimer.unsubscribe();
+    }
 
-    this.selectedIndex = 0;
+    this.selectedAuthModalTab = 0;
     this.focusOnPhoneInput();
   }
 
@@ -159,7 +192,7 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
   onAuthModalOpen() {
     // focus on phone input when modal is open
     this.authOTPForm.patchValue({
-      phone: ' '
+      phone: this.authModalService.phone ? this.authModalService.phone : ' '
     });
     this.focusOnPhoneInput();
   }
@@ -167,6 +200,7 @@ export class AuthModalComponent implements OnInit, AfterViewInit, OnDestroy {
   private focusOnPhoneInput(timeout: number = 50) {
     setTimeout(() => {
       // give the tabset time to animate scroll
+      this.authOTPForm.controls.phone.markAsPristine();
       this.phoneRef.nativeElement.focus();
     }, timeout);
   }
