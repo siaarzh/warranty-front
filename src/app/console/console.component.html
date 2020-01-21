@@ -1,0 +1,87 @@
+<!-- side nav -->
+  <!-- notifications modal -->
+  <!-- search modal (full-screen) -->
+  <!-- profile modal -->
+<!-- side drawer for items -->
+  <!-- bottom pull-out drawer for filtering -->
+
+<!--TODO: Move styles out of template-->
+<!--COMPONENT TEMPLATE-->
+<nz-layout class="app-layout">
+  <nz-sider
+    nzTheme="light"
+    class="menu-sidebar"
+    nzWidth="70"
+    nzCollapsedWidth="70"
+    nzBreakpoint="md"
+    style="box-shadow: none; height: 100vh;"
+    [(nzCollapsed)]="sidenavCollapsed"
+  >
+    <app-sidenav></app-sidenav>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+
+<!--FULL TEMPLATE-->
+<!--<nz-layout class="app-layout">-->
+<!--  <nz-sider nzTheme="light" class="menu-sidebar" style="box-shadow: none; background-color: #E8E8E8"-->
+<!--            nzCollapsible-->
+<!--            nzWidth="256px"-->
+<!--            nzCollapsedWidth="70"-->
+<!--            nzBreakpoint="md"-->
+<!--            [(nzCollapsed)]="sidenavCollapsed">-->
+<!--    <div class="sidebar-logo" style="background-color: white">-->
+<!--      <a routerLink="/welcome">-->
+<!--        <img src="https://image.flaticon.com/icons/png/512/861/861687.png" style="width: 50px" alt="logo">-->
+<!--        <h1 style="color: #564787">Warranty</h1>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--    <ul nz-menu nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed" style="color: #564787" style="background-color: #E8E8E8">-->
+<!--      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Notifications' : ''">-->
+<!--        <i nz-icon nzType="mail" nzTheme="fill" style="color: #564787"></i>-->
+<!--        <nz-badge nzDot [nzStyle]="{transform: sidenavCollapsed ? 'translate(-40%, -160%)' : 'translate(-220%, -140%)'}"></nz-badge>-->
+<!--        <span *ngIf="!sidenavCollapsed">Notifications</span>-->
+<!--      </li>-->
+<!--      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Warranties' : ''">-->
+<!--        <i nz-icon nzType="safety-certificate" nzTheme="fill" style="color: #564787"></i>-->
+<!--        <nz-badge nzDot [nzStyle]="{transform: sidenavCollapsed ? 'translate(-40%, -160%)' : 'translate(-220%, -140%)'}"></nz-badge>-->
+<!--        <span *ngIf="!sidenavCollapsed">Warranties</span>-->
+<!--      </li>-->
+<!--      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Search' : ''">-->
+<!--        <i nz-icon nzType="search" nzTheme="outline" style="color: #564787"></i>-->
+<!--        <span *ngIf="!sidenavCollapsed">Search</span>-->
+<!--      </li>-->
+<!--      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Help' : ''">-->
+<!--        <i nz-icon nzType="question-circle" nzTheme="outline" style="color: #564787"></i>-->
+<!--        <span *ngIf="!sidenavCollapsed">Help</span>-->
+<!--      </li>-->
+
+<!--      <li nz-submenu>-->
+<!--        <span title><nz-avatar nzIcon="user"></nz-avatar>{{!sidenavCollapsed ? 'John Doe' : ''}}</span>-->
+<!--        <ul>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            <a routerLink="/profile">Profile</a>-->
+<!--          </li>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            <a routerLink="/settings">Settings</a>-->
+<!--          </li>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            Toggle Dark Theme-->
+<!--            <nz-switch style="flood-color: green"></nz-switch>-->
+<!--          </li>-->
+<!--          <li nz-menu-item>-->
+<!--            <a>Log out</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>-->
+
+<!--    </ul>-->
+<!--  </nz-sider>-->
+<!--  <nz-layout>-->
+<!--    <h1>Welcome Component</h1>-->
+<!--  </nz-layout>-->
+<!--</nz-layout>-->

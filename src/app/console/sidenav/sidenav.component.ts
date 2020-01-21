@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,11 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.sass']
 })
 export class SidenavComponent implements OnInit {
-  isCollapsed = true;
+  sidenavCollapsed = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelectNotificationMenu() {
+
+  }
+
+  onSelectWarrantyMenu() {
+
+  }
+
+  onSelectSearch() {
+
+  }
 }

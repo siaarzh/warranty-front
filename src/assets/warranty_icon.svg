@@ -1,0 +1,13 @@
+<svg id="warranty_icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Rectangle_44" data-name="Rectangle 44" fill="none" stroke="#564787" stroke-width="1" opacity="0">
+    <rect width="40" height="40" stroke="none"/>
+    <rect x="0.5" y="0.5" width="39" height="39" fill="none"/>
+  </g>
+  <g id="award-48" transform="translate(9.5 9.5)">
+    <g id="Group_39" data-name="Group 39" transform="translate(0.5 0.5)">
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="6.5" cy="6.5" r="6.5" transform="translate(3.921)" stroke-width="2" stroke="#564787" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path id="Path_28" data-name="Path 28" d="M9.4,12.573,6.5,18.135,4.789,14.1.5,15.007,3.726,8.824" transform="translate(-0.5 2.786)" fill="none" stroke="#564787" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_29" data-name="Path 29" d="M14.792,8.824l3.226,6.183L13.73,14.1l-1.707,4.038-2.9-5.562" transform="translate(2.903 2.786)" fill="none" stroke="#564787" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

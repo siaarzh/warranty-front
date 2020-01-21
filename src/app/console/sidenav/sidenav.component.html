@@ -1,0 +1,79 @@
+<div style="display: flex; flex-direction: column; height: 100%; color: #564787; background-color: #E8E8E8">
+
+  <div style="flex-grow: 1">
+    <ul nz-menu nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed" >
+      <li #notifications nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Notifications' : ''" style="position: relative" (click)="onSelectNotificationMenu()">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+          <img  src="../../../assets/bell_icon.svg">
+        </div>
+          <!-- selected item circle. inherits padding from parent, therefore needs to have negative margin that is half the length of the icon -->
+          <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+            <svg height="40" width="40">
+              <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
+            </svg>
+          </div>
+<!--        keeping below [nzStyle] definition as example:   -->
+<!--        <nz-badge nzDot [nzStyle]="{transform: sidenavCollapsed ? 'translate(-40%, -160%)' : 'translate(-220%, -140%)'}"></nz-badge>-->
+        <nz-badge nzDot style="position: relative; z-index: 21; transform: translate(160%, -120%); color: #F9F7F7"></nz-badge>
+        <span *ngIf="!sidenavCollapsed">Notifications</span>
+      </li>
+    </ul>
+  </div>
+<!--  TODO: Combine the two <ul>'s into one, because zorro doesn't recognize selected elements correctly  -->
+  <div style="flex-shrink: 0">
+    <ul nz-menu nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed" >
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Warranties' : ''" style="position: relative" (click)="onSelectWarrantyMenu()">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+          <img  src="../../../assets/warranty_icon.svg">
+        </div>
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+          <svg height="40" width="40">
+            <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
+          </svg>
+        </div>
+        <nz-badge nzDot style="position: relative; z-index: 21; transform: translate(160%, -120%); color: #F9F7F7"></nz-badge>
+        <span *ngIf="!sidenavCollapsed">Warranties</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Search' : ''" style="position: relative;" (click)="onSelectSearch()">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+          <img  src="../../../assets/search_icon.svg">
+        </div>
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+          <svg height="40" width="40">
+            <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
+          </svg>
+        </div>
+        <span *ngIf="!sidenavCollapsed">Search</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="sidenavCollapsed ? 'Help' : ''">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+          <img  src="../../../assets/help_icon.svg">
+        </div>
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+          <svg height="40" width="40">
+            <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
+          </svg>
+        </div>
+        <span *ngIf="!sidenavCollapsed">Help</span>
+      </li>
+      <li nz-submenu>
+        <span title><nz-avatar nzIcon="user"></nz-avatar>{{!sidenavCollapsed ? 'John Doe' : ''}}</span>
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/profile">Profile</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/settings">Settings</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            Toggle Dark Theme
+            <nz-switch style="flood-color: green"></nz-switch>
+          </li>
+          <li nz-menu-item>
+            <a>Log out</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

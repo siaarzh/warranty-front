@@ -194,7 +194,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     this.isLoggingIn = true;
     setTimeout(() => {
       // dummy loading spinner
-      this.router.navigate(['/warranty']);
+      this.router.navigate(['/console']);
     }, 1000);
   }
 
