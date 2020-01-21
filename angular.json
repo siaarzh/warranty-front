@@ -73,7 +73,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "warranty-front:build"
+            "browserTarget": "warranty-front:build",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {
