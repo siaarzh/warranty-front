@@ -3,6 +3,8 @@ import { Subscription, timer } from 'rxjs';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthModalService } from './auth-modal.service';
+import { Router } from '@angular/router';
+import { timeInterval } from 'rxjs/operators';
 
 @Component({
   selector: 'app-auth-modal',
@@ -14,6 +16,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   private authModalSub: Subscription;
   isVisible = false;
   isConfirmLoading = false;
+  isLoggingIn = false;
   selectedAuthModalTab = 0;
 
   // OTP
@@ -34,6 +37,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
 
   constructor(
     private authModalService: AuthModalService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -186,7 +190,12 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     // if (this.OTPRequested) {
     //   this.onReset();
     // }
-    console.log('submitted');
+    console.log('log in data submitted');
+    this.isLoggingIn = true;
+    setTimeout(() => {
+      // dummy loading spinner
+      this.router.navigate(['/warranty']);
+    }, 1000);
   }
 
   onAuthModalOpen() {
