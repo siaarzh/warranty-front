@@ -7,6 +7,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   sidenavCollapsed = true;
+  selectedMenuItem = 'warranties';
 
   constructor() { }
 
@@ -14,14 +15,23 @@ export class SidenavComponent implements OnInit {
   }
 
   onSelectNotificationMenu() {
-
+    this.selectedMenuItem = 'notifications';
   }
 
   onSelectWarrantyMenu() {
-
+    this.selectedMenuItem = 'warranties';
   }
 
   onSelectSearch() {
-
+    this.selectedMenuItem = 'search';
   }
+
+  onSelectHelp() {
+    this.selectedMenuItem = 'help';
+  }
+
+  onSelectProfile() {
+    this.selectedMenuItem = 'profile';
+  }
+
 }
