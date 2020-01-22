@@ -1,10 +1,9 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Subscription, timer } from 'rxjs';
+import { Router } from '@angular/router';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription, timer } from 'rxjs';
 
 import { AuthModalService } from './auth-modal.service';
-import { Router } from '@angular/router';
-import { timeInterval } from 'rxjs/operators';
 
 @Component({
   selector: 'app-auth-modal',
