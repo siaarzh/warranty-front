@@ -9,6 +9,9 @@ export class SidenavComponent implements OnInit {
   sidenavCollapsed = true;
   selectedMenuItem = 'warranties';
 
+  nightMode = false;
+  nightModeText = 'night';
+
   constructor() { }
 
   ngOnInit() {
@@ -34,4 +37,13 @@ export class SidenavComponent implements OnInit {
     this.selectedMenuItem = 'profile';
   }
 
+  onSwitchNightMode() {
+    if (this.nightModeText === 'night') {
+      this.nightModeText = 'day';
+      this.nightMode = true;
+    } else {
+      this.nightModeText = 'night';
+      this.nightMode = false;
+    }
+  }
 }

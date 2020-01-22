@@ -140,29 +140,89 @@
       <!--   HELP   -->
 
       <!--   PROFILE SUBMENU   -->
-      <li nz-submenu>
-        <span title
-          ><nz-avatar nzText="JD" style="position: absolute; margin: -0px -8px; color:#564787; background-color:#DBCBD8; font-weight: bolder"></nz-avatar
-          >{{ !sidenavCollapsed ? "John Doe" : "" }}</span
+      <li
+        nz-menu-item
+        nz-popover
+        [nzPopoverContent]="popoverMenu"
+        [nzPopoverPlacement]="'rightBottom'"
+        [nzPopoverTrigger]="'hover'"
+        nzPlacement="right"
+        [nzSelected]="selectedMenuItem === 'profile'"
+        style="position: relative;"
+        (click)="onSelectProfile()"
+      >
+        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+          <nz-avatar
+            nzText="JD"
+            style="position: absolute; margin: 4px 4px; color:#564787; background-color:#DBCBD8; font-weight: bolder"
+          >
+          </nz-avatar>
+        </div>
+        <div
+          class="menu-item-circle"
+          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"
         >
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/profile">Profile</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/settings">Settings</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            Toggle Dark Theme
-            <nz-switch style="flood-color: green"></nz-switch>
-          </li>
-          <li nz-menu-item>
-            <a>Log out</a>
-          </li>
-        </ul>
+          <svg height="40" width="40">
+            <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
+          </svg>
+        </div>
+        <span *ngIf="!sidenavCollapsed">Profile</span>
       </li>
+            <!--      <li nz-submenu>-->
+<!--        <span title-->
+<!--          ><nz-avatar nzText="JD" style="position: absolute; margin: -0px -8px; color:#564787; background-color:#DBCBD8; font-weight: bolder"></nz-avatar-->
+<!--          >{{ !sidenavCollapsed ? "John Doe" : "" }}</span-->
+<!--        >-->
+<!--        <ul>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            <a routerLink="/profile">Profile</a>-->
+<!--          </li>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            <a routerLink="/settings">Settings</a>-->
+<!--          </li>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            Toggle Dark Theme-->
+<!--            <nz-switch style="flood-color: green"></nz-switch>-->
+<!--          </li>-->
+<!--          <li nz-menu-item>-->
+<!--            <a>Log out</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>-->
       <!--   PROFILE SUBMENU   -->
 
     </ul>
   </div>
 </div>
+
+<ng-template #popoverMenu>
+  <div>
+    <ul nz-menu class="popover-menu" style="background-color: transparent; border-color: transparent;">
+      <li nz-menu-item nzMatchRouter class="popover-item">
+        <a routerLink="./profile">
+          <i nz-icon nzType="user"></i>
+          Profile
+        </a>
+      </li>
+      <li nz-menu-item nzMatchRouter class="popover-item">
+        <a routerLink="./settings">
+          <i nz-icon nzType="setting"></i>
+          Settings
+        </a>
+      </li>
+      <li nz-menu-item nzDisabled class="popover-item">
+        <a (click)="onSwitchNightMode()">
+          <i nz-icon>
+            <img class="popover-icon disabled" width="14" src="../../../assets/night_mode_icon.svg">
+          </i>
+          Switch to {{ nightModeText }} mode
+          <nz-switch nzDisabled [ngModel]="nightMode" nzSize="small" style="margin-left: 10px"></nz-switch>
+        </a>
+      </li>
+      <li nz-menu-divider></li>
+    </ul>
+    <p style="font-weight: bolder; margin-bottom: 0">
+      John Doe
+    </p>
+  </div>
+</ng-template>
