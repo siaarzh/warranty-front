@@ -6,6 +6,7 @@ import { ConsoleRoutingModule } from './console-routing.module';
 import { ConsoleComponent } from './console.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { WarrantyComponent } from './warranty/warranty.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { WarrantyComponent } from './warranty/warranty.component';
     ConsoleComponent,
     SidenavComponent,
     WarrantyComponent,
+    NotificationsComponent,
   ],
 })
 export class ConsoleModule { }
