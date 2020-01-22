@@ -85,6 +85,19 @@
               </nz-form-control>
             </div>
           </nz-form-item>
+          <nz-form-item *ngIf="invalidOTP">
+            <div
+              nz-row
+            >
+              <nz-form-control nzSpan="22" nzOffset="1">
+                <div nz-row>
+                  <div nz-col nzSpan="24">
+                    <nz-alert nzType="error" nzMessage="Неверный СМС код, повторите попытку." nzShowIcon></nz-alert>
+                  </div>
+                </div>
+              </nz-form-control>
+            </div>
+          </nz-form-item>
           <nz-form-item *ngIf="OTPRequested">
             <div nz-row>
               <nz-form-control [nzXs]="{ span: 22, offset: 0 }" [nzSm]="{ span: 22, offset: 1 }">

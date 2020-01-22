@@ -23,6 +23,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   private authOTPSub: Subscription;
   private rowsSub: Subscription;
   private OTPTimer: Subscription;
+  private OTPCode: string;
   authOTPForm: FormGroup;
   OTPRequested = false;
   OTPTimerStarted = false;
@@ -45,8 +46,10 @@ export class AuthModalComponent implements OnInit, OnDestroy {
       this.isVisible = show;
     });
     this.initializeForms();
-    this.authOTPSub = this.authOTPForm.valueChanges.subscribe((v) => {
-      console.log(this.authOTPForm.getRawValue());
+    this.authOTPSub = this.authOTPForm.valueChanges.subscribe(() => {
+      // console.log(this.authOTPForm.getRawValue());
+      this.OTPCode = (this.authOTPForm.getRawValue().otp as string[]).join('');
+      // console.log(this.OTPCode);
     });
   }
 
@@ -113,6 +116,14 @@ export class AuthModalComponent implements OnInit, OnDestroy {
 
   get OTPControls() {
     return (this.authOTPForm.get('otp') as FormArray).controls;
+  }
+
+  get invalidOTP() {
+    let invalidState = this.authOTPForm.controls.otp.invalid;
+    this.OTPControls.forEach((key) => {
+      invalidState = invalidState && key.touched;
+    });
+    return invalidState;
   }
 
   startOTPTimer() {
@@ -190,12 +201,18 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     // if (this.OTPRequested) {
     //   this.onReset();
     // }
-    console.log('log in data submitted');
-    this.isLoggingIn = true;
-    setTimeout(() => {
-      // dummy loading spinner
-      this.router.navigate(['/console']);
-    }, 1000);
+    if (this.OTPCode === '1234') {
+      console.log('log in data submitted. loading user console...');
+      this.isLoggingIn = true;
+      setTimeout(() => {
+        // dummy loading spinner
+        this.router.navigate(['/console']);
+      }, 1000);
+    } else {
+      this.authOTPForm.patchValue({
+        otp: ['', '', '', '']
+      });
+    }
   }
 
   onAuthModalOpen() {
