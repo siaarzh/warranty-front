@@ -138,7 +138,7 @@
       <!-- OTP VERIFICATION LOGIN FORM -->
 
       <!-- EMAIL LOGIN FORM -->
-      <nz-tab nzTitle="По почте">
+      <nz-tab nzTitle="По почте" nzDisabled>
         <form nz-form class="email-login-form" [formGroup]="authEmailForm">
           <nz-form-item>
             <nz-form-control nzErrorTip="Please input your username!">
@@ -159,7 +159,7 @@
       <!-- EMAIL LOGIN FORM -->
 
       <!-- SOCIAL LOGIN FORM -->
-      <nz-tab nzTitle="Соцсети">
+      <nz-tab nzTitle="Соцсети" nzDisabled>
         <div class="social-login">
           <nz-form-item>
             <button id="google-btn" nzBlock nz-button [nzSize]="'large'" nzType="default">
