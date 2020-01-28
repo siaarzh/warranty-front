@@ -1,14 +1,8 @@
 <div
-  style="display: flex; flex-direction: column; height: 100%; color: #564787; background-color: #E8E8E8"
+  style="position: fixed; display: flex; flex-direction: column; height: 100%; color: #564787; background-color: #E8E8E8"
 >
   <div style="flex-grow: 1">
-    <ul
-      nz-menu
-      nzSelectable="false"
-      nzMode="vertical"
-      [nzInlineCollapsed]="sidenavCollapsed"
-    >
-
+    <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
       <!--   NOTIFICATIONS   -->
       <li
         routerLink="./notifications"
@@ -21,12 +15,9 @@
         (click)="onSelectNotificationMenu()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img src="../../../assets/bell_icon.svg" />
+          <img class="menu-icon" src="../../../assets/bell_icon.svg" alt="bell-icon"/>
         </div>
-        <div
-          class="menu-item-circle"
-          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"
-        >
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
@@ -38,18 +29,11 @@
         <span *ngIf="!sidenavCollapsed">Notifications</span>
       </li>
       <!--   NOTIFICATIONS   -->
-
     </ul>
   </div>
 
   <div style="flex-shrink: 0">
-    <ul
-      nz-menu
-      nzSelectable="false"
-      nzMode="vertical"
-      [nzInlineCollapsed]="sidenavCollapsed"
-    >
-
+    <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
       <!--   WARRANTIES   -->
       <li
         routerLink="./warranty"
@@ -62,12 +46,9 @@
         (click)="onSelectWarrantyMenu()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img src="../../../assets/warranty_icon.svg" />
+          <img class="menu-icon" src="../../../assets/warranty_icon.svg" alt="warranty-icon"/>
         </div>
-        <div
-          class="menu-item-circle"
-          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"
-        >
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
@@ -91,12 +72,9 @@
         (click)="onSelectSearch()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img src="../../../assets/search_icon.svg" />
+          <img class="menu-icon" src="../../../assets/search_icon.svg" alt="search-icon"/>
         </div>
-        <div
-          class="menu-item-circle"
-          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"
-        >
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
@@ -107,13 +85,7 @@
     </ul>
   </div>
   <div style="flex-shrink: 0.2">
-    <ul
-      nz-menu
-      nzSelectable="false"
-      nzMode="vertical"
-      [nzInlineCollapsed]="sidenavCollapsed"
-    >
-
+    <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
       <!--   HELP   -->
       <li
         nz-menu-item
@@ -125,12 +97,9 @@
         (click)="onSelectHelp()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img src="../../../assets/help_icon.svg" />
+          <img class="menu-icon" src="../../../assets/help_icon.svg" alt="search-icon"/>
         </div>
-        <div
-          class="menu-item-circle"
-          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"
-        >
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
@@ -139,7 +108,7 @@
       </li>
       <!--   HELP   -->
 
-      <!--   PROFILE SUBMENU   -->
+      <!--   PROFILE SUBMENU ICON   -->
       <li
         nz-menu-item
         nz-popover
@@ -158,43 +127,15 @@
           >
           </nz-avatar>
         </div>
-        <div
-          class="menu-item-circle"
-          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"
-        >
-          <svg height="40" width="40">
-            <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
-          </svg>
-        </div>
+        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"></div>
         <span *ngIf="!sidenavCollapsed">Profile</span>
       </li>
-            <!--      <li nz-submenu>-->
-<!--        <span title-->
-<!--          ><nz-avatar nzText="JD" style="position: absolute; margin: -0px -8px; color:#564787; background-color:#DBCBD8; font-weight: bolder"></nz-avatar-->
-<!--          >{{ !sidenavCollapsed ? "John Doe" : "" }}</span-->
-<!--        >-->
-<!--        <ul>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a routerLink="/profile">Profile</a>-->
-<!--          </li>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a routerLink="/settings">Settings</a>-->
-<!--          </li>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            Toggle Dark Theme-->
-<!--            <nz-switch style="flood-color: green"></nz-switch>-->
-<!--          </li>-->
-<!--          <li nz-menu-item>-->
-<!--            <a>Log out</a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </li>-->
-      <!--   PROFILE SUBMENU   -->
-
+      <!--   PROFILE SUBMENU ICON   -->
     </ul>
   </div>
 </div>
 
+<!--   PROFILE SUBMENU   -->
 <ng-template #popoverMenu>
   <div>
     <ul nz-menu class="popover-menu" style="background-color: transparent; border-color: transparent;">
@@ -213,7 +154,7 @@
       <li nz-menu-item nzDisabled class="popover-item">
         <a (click)="onSwitchNightMode()">
           <i nz-icon>
-            <img class="popover-icon disabled" width="14" src="../../../assets/night_mode_icon.svg">
+            <img class="popover-icon disabled" width="14" src="../../../assets/night_mode_icon.svg" alt="night-mode-icon"/>
           </i>
           Switch to {{ nightModeText }} mode
           <nz-switch nzDisabled [ngModel]="nightMode" nzSize="small" style="margin-left: 10px"></nz-switch>
@@ -226,3 +167,4 @@
     </p>
   </div>
 </ng-template>
+<!--   PROFILE SUBMENU   -->

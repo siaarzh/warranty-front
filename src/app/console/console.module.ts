@@ -10,14 +10,10 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
-  imports: [
-    ConsoleRoutingModule,
-    NgZorroAntdModule,
-    CommonModule,
-    FormsModule,
-  ],
+  imports: [ConsoleRoutingModule, NgZorroAntdModule, CommonModule, FormsModule, ScrollingModule],
   declarations: [
     ConsoleComponent,
     SidenavComponent,
@@ -27,4 +23,4 @@ import { FormsModule } from '@angular/forms';
     SettingsComponent,
   ],
 })
-export class ConsoleModule { }
+export class ConsoleModule {}
