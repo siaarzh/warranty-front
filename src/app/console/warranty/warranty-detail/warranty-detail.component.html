@@ -1,6 +1,7 @@
 <div nz-row>
   <div nz-col nzSpan="24" id="breadcrumb">
     <nz-breadcrumb nzSeparator=">">
+      <!--  TODO: recipe-detail: implement breadcrumb  -->
       <nz-breadcrumb-item>
         All Items
       </nz-breadcrumb-item>
@@ -16,7 +17,7 @@
 <div nz-row nzGutter="48">
   <div nz-col class="warranty-detail-image-container" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="10" nzXXl="8">
     <div class="warranty-detail-image-frame">
-      <img alt="example" src="https://brain-images-ssl.cdn.dixons.com/6/2/10152126/l_10152126.jpg"/>
+      <img alt="example" [src]="warranty.imagePath"/>
     </div>
   </div>
   <div nz-col class="warranty-detail-content" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="14" nzXXl="16">

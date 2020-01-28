@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WarrantyService } from '../warranty.service';
 import { Warranty } from '../warranty.model';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-warranty-detail',
@@ -9,9 +10,13 @@ import { Warranty } from '../warranty.model';
 })
 export class WarrantyDetailComponent implements OnInit {
   warranty: Warranty;
-  constructor(private wrntSrvc: WarrantyService) {}
+  warrantyIndex: number;
+  constructor(private warrantyService: WarrantyService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.warranty = this.wrntSrvc.getWarranties()[0];
+    this.route.params.subscribe((params: Params) => {
+      this.warrantyIndex = +params.id;
+      this.warranty = this.warrantyService.getWarranty(this.warrantyIndex);
+    });
   }
 }

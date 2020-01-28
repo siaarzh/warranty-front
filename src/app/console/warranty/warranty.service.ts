@@ -25,9 +25,9 @@ export class WarrantyService {
       ],
     ),
     new Warranty(
-      'Logitech - K780 Wireless Keyboard - White',
-      'Type with this multi-device Logitech wireless keyboard. The built-in rubber cradle supports devices vertically, making small screens easily viewable, and 128-bit AES encryption keeps information private. Compatible with Windows, Mac, Chrome and Android devices, this Logitech wireless keyboard uses USB and Bluetooth technology to connect to your smartphone and tablet.',
-      'https://c7.uihere.com/files/104/419/784/computer-keyboard-computer-mouse-wireless-keyboard-logitech-k780-multi-device-external-sending-card-thumb.jpg',
+      'Logitech - K780 Wireless Keyboard - Белый',
+      'Печатайте с помощью этой многофункциональной беспроводной клавиатуры Logitech. Встроенная резиновая подставка поддерживает устройства вертикально, что позволяет легко просматривать небольшие экраны, а 128-битное шифрование AES обеспечивает конфиденциальность информации. Эта беспроводная клавиатура Logitech, совместимая с устройствами под управлением Windows, Mac, Chrome и Android, использует технологию USB и Bluetooth для подключения к смартфону и планшету.',
+      'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5592/5592420_sd.jpg',
       '097855122834',
       '1823CE0F9139',
       [
@@ -51,12 +51,7 @@ export class WarrantyService {
     ),
     new Warranty(
       'HP OfficeJet 3830 All-in-One Printer',
-      'Get more done with the easiest way to print from your smartphone or tablet.\n' +
-        'In comparison to the majority of consumer/home office inkjet all-in-one printers <$399 USD as of November 2014, based on market share as reported by IDC as of Q3 2014, and typical time to set up and/or presence of preloaded plug-in. App download required for printer setup. Local printing requires mobile device and printer to be on the same network or have a direct wireless connection to the printer. Wireless performance is dependent on physical environment and distance from access point. Wireless operations are compatible with 2.4 GHz operations only. Remote printing requires an Internet connection to an HP web-connected printer. App or software and HP ePrint account registration may also be required. Wireless broadband use requires separately purchased service contract for mobile devices. Check with service provider for coverage and availability in your area. See hp.com/go/mobileprinting for more details.\n' +
-        ' Simplify tasks—and save up to 50% on ink\n' +
-        'Savings claim is based on HP Instant Ink Service plan price for 12 months using all pages in plan without purchase of additional pages compared with the cost per page (“CPP”) of the majority of color inkjet printers <$399 USD, market share reported by IDC Q2 2014. CPP comparisons for standard capacity inkjet supplies are based on estimated street price and page yield as reported by Gap Intelligence MFP Weekly and IJP Weekly Reports 9/20/2014. Actual savings may vary depending on number of pages actually printed per month and content of pages printed.\n' +
-        '—with this affordable, easy-to-use all-in-one with fax. It fits in nearly any space and works quietly in the background.\n' +
-        'Ideal for people who want an affordable, Wi-Fi-enabled, compact all-in-one with fax.',
+      'Сделайте больше с помощью простого способа печати со своего смартфона или планшета.',
       'https://sg-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/F/5/F5R95A-1_T1550820998.png',
       '889296063285',
       '156796549849',
@@ -75,5 +70,9 @@ export class WarrantyService {
 
   getWarranties(): Warranty[] {
     return this.warranties.slice();
+  }
+
+  getWarranty(id: number): Warranty {
+    return this.warranties[id];
   }
 }

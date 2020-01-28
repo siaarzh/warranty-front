@@ -1,0 +1,20 @@
+<div nz-row>
+  <div nz-col nzSpan="24" id="breadcrumb">
+    <nz-breadcrumb nzSeparator=">">
+      <nz-breadcrumb-item>
+        All Items
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
+</div>
+<div nz-row style="height: 100%" nzType="flex" nzJustify="space-around" nzAlign="middle">
+  <div nz-col class="warranty-starter" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" nzXXl="24">
+    <nz-empty
+      [nzNotFoundContent]="contentTpl"
+    >
+      <ng-template #contentTpl>
+        <span> Выберите гарантию из списка </span>
+      </ng-template>
+    </nz-empty>
+  </div>
+</div>
