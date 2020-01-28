@@ -1,9 +1,14 @@
+@import "variables"
+
 .demo-infinite-container
   height: 100vh
   border: none
 
 nz-list
-  padding: 0 24px 0 24px
+  padding: 0
+
+nz-list-item
+  padding: 0
 
 div.ant-list-header.ng-star-inserted
   padding: 0
@@ -22,22 +27,13 @@ cdk-virtual-scroll-viewport
   &::-webkit-scrollbar-thumb
     background-color: rgba(0,0,0,0.2)
 
-nz-card.item-card
-  border: none
-  width: 100%
-
 #list-header
   color: #999
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
 
-.item-card-title
-  white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
-
-
+// TODO: Make this type of icon behaviour global
 .list-icon
   filter: invert(28%) sepia(17%) saturate(1717%) hue-rotate(213deg) brightness(98%) contrast(90%)
   &-disabled
@@ -45,3 +41,8 @@ nz-card.item-card
 
 nz-divider
   margin: 0
+
+app-warranty-item
+  width: 100%
+  padding: 0
+  border: none

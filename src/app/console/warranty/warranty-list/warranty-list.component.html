@@ -45,32 +45,9 @@
 
     <!--    CARD WITHIN LIST ITEM  -->
     <!--    PROBLEM: CARDS OVERFLOW PAST LIST BORDERS  -->
-    <nz-list>
-      <nz-list-item *ngFor="let warranty of warranties; let i = index">
-        <nz-card class="item-card">
-          <nz-card-meta
-            [nzAvatar]="itemCardAvatar"
-            [nzTitle]="warranty.productName"
-            [nzDescription]="itemCardDescription"
-          >
-            <ng-template #itemCardAvatar>
-              <nz-avatar
-                [nzShape]="'square'"
-                nzSize="large"
-                style="margin: 12px 0"
-                [nzSrc]="warranty.imagePath"
-              ></nz-avatar>
-            </ng-template>
-            <ng-template #itemCardDescription>
-              <nz-tag *ngIf="!warranty.history[warranty.history.length - 1].valid" [nzColor]="'red'"
-              >истекла</nz-tag
-              >
-              <nz-tag *ngIf="warranty.history[warranty.history.length - 1].valid" [nzColor]="'green'"
-              >действительна</nz-tag
-              >
-            </ng-template>
-          </nz-card-meta>
-        </nz-card>
+    <nz-list [nzSplit]="false">
+      <nz-list-item *ngFor="let warrantyEl of warranties; let i = index">
+        <app-warranty-item [warranty]="warrantyEl" [warrantyIndex]="i"></app-warranty-item>
       </nz-list-item>
     </nz-list>
   </div>
