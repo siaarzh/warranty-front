@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { WarrantyDetailComponent } from './warranty/warranty-detail/warranty-detail.component';
 import { WarrantyStartComponent } from './warranty/warranty-start/warranty-start.component';
+import { WarrantyListComponent } from './warranty/warranty-list/warranty-list.component';
 
 @NgModule({
   imports: [ConsoleRoutingModule, NgZorroAntdModule, CommonModule, FormsModule, ScrollingModule],
@@ -25,6 +26,7 @@ import { WarrantyStartComponent } from './warranty/warranty-start/warranty-start
     SettingsComponent,
     WarrantyDetailComponent,
     WarrantyStartComponent,
+    WarrantyListComponent,
   ],
 })
 export class ConsoleModule {}

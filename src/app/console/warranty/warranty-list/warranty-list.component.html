@@ -1,0 +1,77 @@
+<div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle" style="padding: 12px 24px 0 24px;">
+  <div nz-col nzSpan="20">
+    <h3 id="list-header" nz-tooltip [nzTooltipTitle]="'Всe гарантии'" [nzTooltipPlacement]="'bottom'">
+      <img
+        class="list-icon-disabled"
+        style="filter: invert(47%) sepia(1%) saturate(0%) hue-rotate(182deg) brightness(93%) contrast(89%);"
+        src="../../../../assets/warranty_icon.svg"
+        alt=""
+      />
+      Всe гарантии
+    </h3>
+  </div>
+  <div nz-col nzSpan="4">
+    <h3 style="text-align: right;">
+      <nz-badge
+        [nzCount]="warranties.length"
+        [nzStyle]="{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }"
+      ></nz-badge>
+    </h3>
+  </div>
+</div>
+
+<nz-divider></nz-divider>
+
+<div nz-row>
+  <div nz-col>
+    <!--        TODO: Enable virtual scroll      -->
+    <!--      <cdk-virtual-scroll-viewport itemSize="20" class="demo-infinite-container">-->
+    <!--        <nz-list>-->
+    <!--          <nz-list-item *cdkVirtualFor="let item of ds">-->
+    <!--            <nz-skeleton *ngIf="!item" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>-->
+    <!--            <nz-list-item-meta-->
+    <!--              *ngIf="item"-->
+    <!--              [nzTitle]="nzTitle"-->
+    <!--              nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"-->
+    <!--              [nzDescription]="item.email"-->
+    <!--            >-->
+    <!--              <ng-template #nzTitle>-->
+    <!--                <a href="https://ng.ant.design">{{ item.name.last }}</a>-->
+    <!--              </ng-template>-->
+    <!--            </nz-list-item-meta>-->
+    <!--          </nz-list-item>-->
+    <!--        </nz-list>-->
+    <!--      </cdk-virtual-scroll-viewport>-->
+
+    <!--    CARD WITHIN LIST ITEM  -->
+    <!--    PROBLEM: CARDS OVERFLOW PAST LIST BORDERS  -->
+    <nz-list>
+      <nz-list-item *ngFor="let warranty of warranties; let i = index">
+        <nz-card class="item-card">
+          <nz-card-meta
+            [nzAvatar]="itemCardAvatar"
+            [nzTitle]="warranty.productName"
+            [nzDescription]="itemCardDescription"
+          >
+            <ng-template #itemCardAvatar>
+              <nz-avatar
+                [nzShape]="'square'"
+                nzSize="large"
+                style="margin: 12px 0"
+                [nzSrc]="warranty.imagePath"
+              ></nz-avatar>
+            </ng-template>
+            <ng-template #itemCardDescription>
+              <nz-tag *ngIf="!warranty.history[warranty.history.length - 1].valid" [nzColor]="'red'"
+              >истекла</nz-tag
+              >
+              <nz-tag *ngIf="warranty.history[warranty.history.length - 1].valid" [nzColor]="'green'"
+              >действительна</nz-tag
+              >
+            </ng-template>
+          </nz-card-meta>
+        </nz-card>
+      </nz-list-item>
+    </nz-list>
+  </div>
+</div>
