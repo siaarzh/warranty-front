@@ -7,9 +7,9 @@ export class WarrantyService {
   private warranties: Warranty[] = [
     new Warranty(
       'MICROSOFT Xbox One Wireless Controller - White',
-      'Get gaming with the Microsoft Xbox Wireless Controller. This controller has up to twice the previous wireless range of previous controllers, so you can sit where you want. And thanks to the Bluetooth connection, you can use it with your Xbox One, PC, or any Windows tablet.\n' +
+      'Играйте с беспроводным контроллером Microsoft Xbox. Этот контроллер имеет вдвое больше предыдущего беспроводного диапазона предыдущих контроллеров, так что вы можете сидеть, где хотите. А благодаря соединению Bluetooth вы можете использовать его с вашим Xbox One, ПК или любым планшетом Windows.\n' +
         '\n' +
-        "The textured grips make it easy to use, and there's a 3.5 mm jack to connect your headset. You can even remap the button using the Xbox Accessories App on your Xbox One.",
+        'Текстурные ручки облегчают использование, а для подключения гарнитуры предусмотрен разъем 3,5 мм. Вы даже можете переназначить кнопку с помощью приложения аксессуаров для Xbox на Xbox One.',
       'https://brain-images-ssl.cdn.dixons.com/6/2/10152126/l_10152126.jpg',
       '889842084351',
       '02600877003737',
