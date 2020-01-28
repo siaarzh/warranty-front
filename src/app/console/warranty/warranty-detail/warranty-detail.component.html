@@ -3,13 +3,10 @@
     <nz-breadcrumb nzSeparator=">">
       <!--  TODO: recipe-detail: implement breadcrumb  -->
       <nz-breadcrumb-item>
-        All Items
+        <a [routerLink]="['/console/warranty']">All Items</a>
       </nz-breadcrumb-item>
       <nz-breadcrumb-item>
-        <a>Computer Accessories</a>
-      </nz-breadcrumb-item>
-      <nz-breadcrumb-item>
-        MICROSOFT Xbox One... (1)
+        {{ warranty.productName }}
       </nz-breadcrumb-item>
     </nz-breadcrumb>
   </div>

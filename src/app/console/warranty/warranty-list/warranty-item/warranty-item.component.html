@@ -13,7 +13,7 @@
         ></nz-avatar>
     </ng-template>
     <ng-template #itemCardTitle>
-      <div id="itemCardTitle">
+      <div id="itemCardTitle" [nzTooltipTitle]="warranty.productName" nzTooltipPlacement="right" nz-tooltip>
         {{ warranty.productName }}
       </div>
     </ng-template>
