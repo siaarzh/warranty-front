@@ -1,43 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.sass']
+  styleUrls: ['./sidenav.component.sass'],
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
   sidenavCollapsed = true;
   selectedMenuItem = 'warranties';
 
   nightMode = false;
   nightModeText = 'night';
 
-  constructor() { }
-
-  ngOnInit() {
+  onSelectNotificationMenu(): void {
+    this.selectedMenuItem = 'notification';
   }
 
-  onSelectNotificationMenu() {
-    this.selectedMenuItem = 'notifications';
-  }
-
-  onSelectWarrantyMenu() {
+  onSelectWarrantyMenu(): void {
     this.selectedMenuItem = 'warranties';
   }
 
-  onSelectSearch() {
+  onSelectSearch(): void {
     this.selectedMenuItem = 'search';
   }
 
-  onSelectHelp() {
+  onSelectHelp(): void {
     this.selectedMenuItem = 'help';
   }
 
-  onSelectProfile() {
+  onSelectProfile(): void {
     this.selectedMenuItem = 'profile';
   }
 
-  onSwitchNightMode() {
+  onSwitchNightMode(): void {
     if (this.nightModeText === 'night') {
       this.nightModeText = 'day';
       this.nightMode = true;

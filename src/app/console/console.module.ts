@@ -6,7 +6,7 @@ import { ConsoleRoutingModule } from './console-routing.module';
 import { ConsoleComponent } from './console.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { WarrantyComponent } from './warranty/warranty.component';
-import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationComponent } from './notification/notification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,7 @@ import { WarrantyItemComponent } from './warranty/warranty-list/warranty-item/wa
     ConsoleComponent,
     SidenavComponent,
     WarrantyComponent,
-    NotificationsComponent,
+    NotificationComponent,
     ProfileComponent,
     SettingsComponent,
     WarrantyDetailComponent,
