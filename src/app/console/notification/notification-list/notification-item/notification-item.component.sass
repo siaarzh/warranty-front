@@ -1,0 +1,49 @@
+@import "variables"
+
+ng-template
+  margin-bottom: 0
+
+#itemCardTitle
+  margin: 0
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  font-size: 0.625em
+  font-weight: bolder
+  p
+    margin-bottom: 0
+
+#itemCardDescription
+  margin: 0
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  color: $main-color
+  font-weight: normal
+
+  &.unread
+    font-weight: bold
+
+#itemCardAvatar
+  margin: 12px 0
+  border: 1px solid $main-color
+
+nz-card.item-card
+  cursor: pointer
+  border: none
+  width: 100%
+  padding: 0.375em 1.5em 0.375em 1.5em
+  &.active-card
+    background-color: $main-color
+    #itemCardTitle
+      color: white
+    #itemCardDescription
+      color: white
+    #itemCardAvatar
+      border: 1px solid white
+  &:hover:not(.active-card)
+    background-color: $menu-hover-color
+    #itemCardTitle
+      color: $main-color
+    #itemCardAvatar
+      border: 1px solid $main-color

@@ -15,6 +15,10 @@ import { WarrantyDetailComponent } from './warranty/warranty-detail/warranty-det
 import { WarrantyStartComponent } from './warranty/warranty-start/warranty-start.component';
 import { WarrantyListComponent } from './warranty/warranty-list/warranty-list.component';
 import { WarrantyItemComponent } from './warranty/warranty-list/warranty-item/warranty-item.component';
+import { NotificationListComponent } from './notification/notification-list/notification-list.component';
+import { NotificationItemComponent } from './notification/notification-list/notification-item/notification-item.component';
+import { NotificationMessageComponent } from './notification/notification-message/notification-message.component';
+import { NotificationStartComponent } from './notification/notification-start/notification-start.component';
 
 @NgModule({
   imports: [ConsoleRoutingModule, NgZorroAntdModule, CommonModule, FormsModule, ScrollingModule],
@@ -29,6 +33,10 @@ import { WarrantyItemComponent } from './warranty/warranty-list/warranty-item/wa
     WarrantyStartComponent,
     WarrantyListComponent,
     WarrantyItemComponent,
+    NotificationListComponent,
+    NotificationItemComponent,
+    NotificationMessageComponent,
+    NotificationStartComponent,
   ],
 })
 export class ConsoleModule {}

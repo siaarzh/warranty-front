@@ -8,11 +8,13 @@ import { Warranty } from '../warranty.model';
   styleUrls: ['./warranty-list.component.sass'],
 })
 export class WarrantyListComponent implements OnInit {
+  category: string;
   warranties: Warranty[];
 
   constructor(private warrantyService: WarrantyService) {}
 
   ngOnInit(): void {
+    this.category = 'Все гарантии';
     this.warranties = this.warrantyService.getWarranties();
   }
 }

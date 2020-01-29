@@ -8,6 +8,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { WarrantyDetailComponent } from './warranty/warranty-detail/warranty-detail.component';
 import { WarrantyStartComponent } from './warranty/warranty-start/warranty-start.component';
+import { NotificationStartComponent } from './notification/notification-start/notification-start.component';
+import { NotificationMessageComponent } from './notification/notification-message/notification-message.component';
 
 const routes: Routes = [
   {
@@ -23,7 +25,14 @@ const routes: Routes = [
           { path: ':id', component: WarrantyDetailComponent },
         ],
       },
-      { path: 'notification', component: NotificationComponent },
+      {
+        path: 'notification',
+        component: NotificationComponent,
+        children: [
+          { path: '', component: NotificationStartComponent },
+          { path: ':id', component: NotificationMessageComponent },
+        ],
+      },
       { path: 'profile', component: ProfileComponent },
       { path: 'settings', component: SettingsComponent },
     ],
