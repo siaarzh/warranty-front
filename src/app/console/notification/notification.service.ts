@@ -3,7 +3,7 @@ import { Notification } from './notification.model';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {
-  private notificaitons: Notification[] = [
+  private notifications: Notification[] = [
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекла',
       'alert',
@@ -38,10 +38,10 @@ export class NotificationService {
   ];
 
   getNotifications(): Notification[] {
-    return this.notificaitons.slice();
+    return this.notifications.slice();
   }
 
   getNotification(id: number): Notification {
-    return this.notificaitons[id];
+    return this.notifications[id];
   }
 }
