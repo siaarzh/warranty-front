@@ -8,5 +8,5 @@ import { Warranty } from '../../warranty.model';
 })
 export class WarrantyItemComponent {
   @Input() warranty: Warranty;
-  @Input() warrantyIndex: number;
+  @Input() warrantyUUID: string;
 }

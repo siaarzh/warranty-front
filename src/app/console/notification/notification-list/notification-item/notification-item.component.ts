@@ -11,10 +11,12 @@ export class NotificationItemComponent implements OnInit {
   @Input() notification: Notification;
   @Input() notificationIndex: number;
   imagePath: string;
+  notificationContentClean: string;
 
   constructor(private warrantyService: WarrantyService) {}
 
   ngOnInit(): void {
-    this.imagePath = this.warrantyService.getWarranty(+this.notification.warrantyID).imagePath;
+    this.imagePath = this.warrantyService.getWarranty(this.notification.warrantyUUID).imagePath;
+    this.notificationContentClean = this.notification.messageContent.replace(/<[^>]*>/g, '');
   }
 }

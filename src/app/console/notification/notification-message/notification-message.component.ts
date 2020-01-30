@@ -14,7 +14,7 @@ export class NotificationMessageComponent implements OnInit {
   notification: Notification;
   notificationIndex: number;
   warranty: Warranty;
-  warrantyIndex: number;
+  warrantyUUID: string;
 
   constructor(
     private notificationService: NotificationService,
@@ -26,8 +26,8 @@ export class NotificationMessageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.notificationIndex = +params.id;
       this.notification = this.notificationService.getNotification(this.notificationIndex);
-      this.warrantyIndex = +this.notification.warrantyID;
-      this.warranty = this.warrantyService.getWarranty(this.warrantyIndex);
+      this.warrantyUUID = this.notification.warrantyUUID;
+      this.warranty = this.warrantyService.getWarranty(this.warrantyUUID);
     });
   }
 }

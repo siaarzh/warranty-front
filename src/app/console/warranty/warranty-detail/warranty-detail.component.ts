@@ -10,14 +10,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class WarrantyDetailComponent implements OnInit {
   warranty: Warranty;
-  warrantyIndex: number;
+  warrantyUUID: string;
 
   constructor(private warrantyService: WarrantyService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.warrantyIndex = +params.id;
-      this.warranty = this.warrantyService.getWarranty(this.warrantyIndex);
+      this.warrantyUUID = params.id;
+      this.warranty = this.warrantyService.getWarranty(this.warrantyUUID);
     });
   }
 }

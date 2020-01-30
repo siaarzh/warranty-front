@@ -5,7 +5,7 @@ export class Notification {
   public isRead: boolean;
   public dateSent: Date;
   public messageContent: string;
-  public warrantyID: string;
+  public warrantyUUID: string;
 
   constructor(
     messageTitle: string,
@@ -13,7 +13,7 @@ export class Notification {
     messageSender: string,
     dateSent: string,
     messageContent: string,
-    warrantyID: string = null,
+    warrantyUUID: string = null,
     isRead = false,
   ) {
     this.messageTitle = messageTitle;
@@ -22,6 +22,6 @@ export class Notification {
     this.dateSent = new Date(Date.parse(dateSent));
     this.messageContent = messageContent;
     this.isRead = isRead;
-    this.warrantyID = warrantyID;
+    this.warrantyUUID = warrantyUUID;
   }
 }

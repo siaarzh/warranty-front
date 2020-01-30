@@ -10,9 +10,9 @@ export class NotificationService {
       'Alert_Service',
       '2019-04-18T17:31:24',
       `
-        <p>Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекла. Вы можете удалить или архивировать этот артикуль.</p>
+        <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истекла. Вы можете удалить или архивировать этот артикуль.</p>
         `,
-      '0',
+      '34009b55-6cef-442b-9917-114d02f9d929',
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -20,9 +20,9 @@ export class NotificationService {
       'Warning_Service',
       '2019-04-11T17:31:24',
       `
-        <p>Гарантия "MICROSOFT Xbox One Wireless Controller - White" истечет через 7 дней.</p>
+        <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
-      '0',
+      '34009b55-6cef-442b-9917-114d02f9d929',
       true,
     ),
     new Notification(
@@ -31,9 +31,9 @@ export class NotificationService {
       'Warning_Service',
       '2019-03-18T17:31:24',
       `
-        <p>Гарантия "MICROSOFT Xbox One Wireless Controller - White" истечет через 30 дней.</p>
+        <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 30 дней.</p>
         `,
-      '0',
+      '34009b55-6cef-442b-9917-114d02f9d929',
     ),
   ];
 

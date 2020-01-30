@@ -6,6 +6,7 @@ export class Warranty {
   public imagePath: string;
   public ean: string;
   public sn: string;
+  public uuid: string;
   public history: WarrantyHistory[];
 
   constructor(
@@ -14,13 +15,15 @@ export class Warranty {
     imagePath: string,
     ean: string,
     sn: string,
-    history: WarrantyHistory[],
+    uuid: string,
+    history: WarrantyHistory[] = [],
   ) {
     this.productName = productName;
     this.description = description;
     this.imagePath = imagePath;
     this.ean = ean;
     this.sn = sn;
+    this.uuid = uuid;
     this.history = history;
   }
 }

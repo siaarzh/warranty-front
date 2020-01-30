@@ -13,6 +13,7 @@ export class WarrantyService {
       'https://brain-images-ssl.cdn.dixons.com/6/2/10152126/l_10152126.jpg',
       '889842084351',
       '02600877003737',
+      '34009b55-6cef-442b-9917-114d02f9d929',
       [
         new WarrantyHistory(
           '2019-01-19T17:31:21',
@@ -30,6 +31,7 @@ export class WarrantyService {
       'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5592/5592420_sd.jpg',
       '097855122834',
       '1823CE0F9139',
+      'df3656c6-4a8a-4659-ba58-2b0dfda2bc04',
       [
         new WarrantyHistory(
           '2018-09-03T17:34:41',
@@ -55,6 +57,7 @@ export class WarrantyService {
       'https://sg-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/F/5/F5R95A-1_T1550820998.png',
       '889296063285',
       '156796549849',
+      '4c7fbb32-1e0f-4b75-87f4-b449402c8349',
       [
         new WarrantyHistory(
           '2019-01-19T17:31:21',
@@ -72,7 +75,7 @@ export class WarrantyService {
     return this.warranties.slice();
   }
 
-  getWarranty(id: number): Warranty {
-    return this.warranties[id];
+  getWarranty(uuid: string): Warranty {
+    return this.warranties.find(w => w.uuid === uuid);
   }
 }

@@ -13,22 +13,12 @@
       ></nz-avatar>
     </ng-template>
     <ng-template #itemCardTitle>
-<!--      <div id="itemCardTitle" [nzTooltipTitle]="notification.productName" nzTooltipPlacement="right" nz-tooltip>-->
-<!--        {{ notification.productName }}-->
-<!--      </div>-->
       <!--  TODO: Convert Date to today, yesterday, Month Day and Month Day, Year depending on how long ago  -->
       <div id="itemCardTitle" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notification.dateSent.toISOString().slice(0,10)"></div>
     </ng-template>
     <ng-template #itemCardDescription>
-<!--      <div id="itemCardDescription" >-->
-<!--        <nz-tag *ngIf="!notification.history[notification.history.length - 1].valid" [nzColor]="'red'"-->
-<!--        >истекла</nz-tag-->
-<!--        >-->
-<!--        <nz-tag *ngIf="notification.history[notification.history.length - 1].valid" [nzColor]="'green'"-->
-<!--        >действительна</nz-tag-->
-<!--        >-->
-<!--      </div>-->
-      <div id="itemCardDescription" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notification.messageContent"></div>
+      <div id="itemCardDescription" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notificationContentClean">
+      </div>
     </ng-template>
   </nz-card-meta>
 </nz-card>

@@ -28,7 +28,7 @@
   <div nz-col id="message-sender-date" nzSpan="12">
     <p>
       <b>Отправлено: </b>
-      {{ notification.dateSent.toISOString().slice(0,10) }}
+      {{ notification.dateSent.toISOString().slice(0, 10) }}
     </p>
   </div>
 </div>
@@ -37,7 +37,7 @@
     <div [innerHTML]="notification.messageContent"></div>
   </div>
 </div>
-<div nz-row *ngIf="notification.warrantyID">
+<div nz-row *ngIf="notification.warrantyUUID">
   <div nz-col nzSpan="24">
     <p>ссылка на гарантию:</p>
   </div>
@@ -45,16 +45,28 @@
     <div nz-row nzGutter="48">
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="5" nzXl="4" nzXXl="4">
         <div id="message-warranty-link-image-frame">
-          <img alt="warranty-item" [src]="warranty.imagePath"/>
+          <img alt="warranty-item" [src]="warranty.imagePath" />
         </div>
       </div>
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="19" nzXl="20" nzXXl="20">
         <nz-descriptions [nzTitle]="warrantyLink">
           <nz-descriptions-item nzTitle="EAN">{{ warranty.ean }}</nz-descriptions-item>
           <nz-descriptions-item nzTitle="Сер #">{{ warranty.sn }}</nz-descriptions-item>
-          <nz-descriptions-item nzTitle="Истекает">{{ warranty.history[warranty.history.length-1].expiryDate.toISOString().slice(0,10) }}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="Истекает">{{
+            warranty.history[warranty.history.length - 1].expiryDate.toISOString().slice(0, 10)
+          }}</nz-descriptions-item>
           <ng-template #warrantyLink>
-            <a [routerLink]="['/console', 'warranty', warrantyIndex]">{{ warranty.productName }}</a>
+            <div nz-row>
+              <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="20" nzXl="20" nzXXl="20">
+                <a [routerLink]="['/console', 'warranty', warrantyUUID]">{{ warranty.productName }}</a>
+              </div>
+              <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="4" nzXl="4" nzXXl="4">
+                <nz-tag *ngIf="!warranty.history[warranty.history.length - 1].valid" [nzColor]="'red'">истекла</nz-tag>
+                <nz-tag *ngIf="warranty.history[warranty.history.length - 1].valid" [nzColor]="'green'"
+                >действительна</nz-tag
+                >
+              </div>
+            </div>
           </ng-template>
         </nz-descriptions>
       </div>
