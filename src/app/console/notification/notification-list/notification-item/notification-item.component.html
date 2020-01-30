@@ -28,7 +28,7 @@
 <!--        >действительна</nz-tag-->
 <!--        >-->
 <!--      </div>-->
-      <div id="itemCardDescription" nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="notification.messageTitle" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notification.messageContent"></div>
+      <div id="itemCardDescription" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notification.messageContent"></div>
     </ng-template>
   </nz-card-meta>
 </nz-card>
