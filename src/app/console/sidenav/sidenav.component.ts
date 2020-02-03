@@ -1,35 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.sass'],
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
   sidenavCollapsed = true;
   selectedMenuItem = 'warranties';
 
   nightMode = false;
   nightModeText = 'night';
 
-  onSelectNotificationMenu(): void {
-    this.selectedMenuItem = 'notification';
-  }
+  constructor(private route: ActivatedRoute) {}
 
-  onSelectWarrantyMenu(): void {
-    this.selectedMenuItem = 'warranties';
+  ngOnInit(): void {
+    console.log(this.route);
   }
 
   onSelectSearch(): void {
+    // TODO: Implement search modal
     this.selectedMenuItem = 'search';
   }
 
   onSelectHelp(): void {
+    // TODO: Implement help modal
     this.selectedMenuItem = 'help';
-  }
-
-  onSelectProfile(): void {
-    this.selectedMenuItem = 'profile';
   }
 
   onSwitchNightMode(): void {

@@ -9,10 +9,9 @@
         nz-menu-item
         nz-tooltip
         nzPlacement="right"
-        [nzSelected]="selectedMenuItem === 'notification'"
+        routerLinkActive="ant-menu-item-selected"
         [nzTitle]="sidenavCollapsed ? 'Notifications' : ''"
         style="position: relative"
-        (click)="onSelectNotificationMenu()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
           <img class="menu-icon" src="../../../assets/bell_icon.svg" alt="bell-icon"/>
@@ -40,10 +39,9 @@
         nz-menu-item
         nz-tooltip
         nzPlacement="right"
-        [nzSelected]="selectedMenuItem === 'warranties'"
+        routerLinkActive="ant-menu-item-selected"
         [nzTitle]="sidenavCollapsed ? 'Warranties' : ''"
         style="position: relative"
-        (click)="onSelectWarrantyMenu()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
           <img class="menu-icon" src="../../../assets/warranty_icon.svg" alt="warranty-icon"/>
@@ -66,7 +64,6 @@
         nz-menu-item
         nz-tooltip
         nzPlacement="right"
-        [nzSelected]="selectedMenuItem === 'search'"
         [nzTitle]="sidenavCollapsed ? 'Search' : ''"
         style="position: relative;"
         (click)="onSelectSearch()"
@@ -91,7 +88,6 @@
         nz-menu-item
         nz-tooltip
         nzPlacement="right"
-        [nzSelected]="selectedMenuItem === 'help'"
         [nzTitle]="sidenavCollapsed ? 'Help' : ''"
         style="position: relative;"
         (click)="onSelectHelp()"
@@ -116,9 +112,10 @@
         [nzPopoverPlacement]="'rightBottom'"
         [nzPopoverTrigger]="'hover'"
         nzPlacement="right"
-        [nzSelected]="selectedMenuItem === 'profile'"
+        routerLink="./profile"
+        routerLinkActive="ant-menu-item-selected"
         style="position: relative;"
-        (click)="onSelectProfile()"
+
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
           <nz-avatar

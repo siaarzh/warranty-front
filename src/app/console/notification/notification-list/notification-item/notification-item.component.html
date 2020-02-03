@@ -1,24 +1,24 @@
 <nz-card class="item-card" [routerLink]="[notificationIndex]" routerLinkActive="active-card">
-  <nz-card-meta
-    [nzAvatar]="itemCardAvatar"
-    [nzTitle]="itemCardTitle"
-    [nzDescription]="itemCardDescription"
-  >
+  <nz-card-meta [nzAvatar]="itemCardAvatar" [nzTitle]="itemCardTitle" [nzDescription]="itemCardDescription">
     <ng-template #itemCardAvatar>
-      <nz-avatar
-        [nzShape]="'square'"
-        nzSize="large"
-        id="itemCardAvatar"
-        [nzSrc]="imagePath"
-      ></nz-avatar>
+      <nz-avatar [nzShape]="'square'" nzSize="large" id="itemCardAvatar" [nzSrc]="imagePath"></nz-avatar>
     </ng-template>
     <ng-template #itemCardTitle>
       <!--  TODO: Convert Date to today, yesterday, Month Day and Month Day, Year depending on how long ago  -->
-      <div id="itemCardTitle" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notification.dateSent.toISOString().slice(0,10)"></div>
+      <div
+        id="itemCardTitle"
+        [ngClass]="{ unread: !notification.isRead }"
+        [innerHTML]="formattedSentDate"
+        [title]="notification.dateSent | date"
+      ></div>
     </ng-template>
     <ng-template #itemCardDescription>
-      <div id="itemCardDescription" [ngClass]="{'unread': !notification.isRead}" [innerHTML]="notificationContentClean">
-      </div>
+      <div
+        id="itemCardDescription"
+        [ngClass]="{ unread: !notification.isRead }"
+        [innerHTML]="notificationContentClean"
+        [title]="notification.messageTitle"
+      ></div>
     </ng-template>
   </nz-card-meta>
 </nz-card>
