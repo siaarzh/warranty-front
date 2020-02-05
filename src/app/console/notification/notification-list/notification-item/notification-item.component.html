@@ -8,8 +8,8 @@
       <div
         id="itemCardTitle"
         [ngClass]="{ unread: !notification.isRead }"
-        [innerHTML]="formattedSentDate"
-        [title]="notification.dateSent | date"
+        [innerHTML]="notification.dateSent | fancyDate"
+        [title]="notification.dateSent | date:'medium'"
       ></div>
     </ng-template>
     <ng-template #itemCardDescription>

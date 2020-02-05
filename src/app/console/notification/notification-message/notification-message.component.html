@@ -28,7 +28,7 @@
   <div nz-col id="message-sender-date" nzSpan="12">
     <p>
       <b>Отправлено: </b>
-      {{ notification.dateSent.toISOString().slice(0, 10) }}
+      {{ notification.dateSent | date:'medium' }}
     </p>
   </div>
 </div>
@@ -53,7 +53,7 @@
           <nz-descriptions-item nzTitle="EAN">{{ warranty.ean }}</nz-descriptions-item>
           <nz-descriptions-item nzTitle="Сер #">{{ warranty.sn }}</nz-descriptions-item>
           <nz-descriptions-item nzTitle="Истекает">{{
-            warranty.history[warranty.history.length - 1].expiryDate.toISOString().slice(0, 10)
+            warranty.history[warranty.history.length - 1].expiryDate | date:'short'
           }}</nz-descriptions-item>
           <ng-template #warrantyLink>
             <div nz-row>

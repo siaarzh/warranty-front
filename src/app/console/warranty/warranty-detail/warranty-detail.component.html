@@ -2,7 +2,7 @@
   <div nz-col nzSpan="24" id="breadcrumb">
     <nz-breadcrumb nzSeparator=">">
       <nz-breadcrumb-item>
-        <a [routerLink]="['/console/warranty']">All Items</a>
+        <a [routerLink]="['/console/warranty']">Все гарантии</a>
       </nz-breadcrumb-item>
       <nz-breadcrumb-item>
         {{ warranty.productName }}
@@ -26,8 +26,8 @@
     </div>
     <h2 style="font-weight: bold">О Гарантии</h2>
     <h4><span style="font-weight: bolder">Тип гарантии: </span> {{ warranty.history[warranty.history.length-1].type }} (<a href="#">детали</a>) </h4>
-    <h4><span style="font-weight: bolder">Дата покупки: </span> {{ warranty.history[warranty.history.length-1].purchaseDate.toISOString().slice(0,10) }}</h4>
-    <h4><span style="font-weight: bolder">Гарантийный срок до: </span> {{ warranty.history[warranty.history.length-1].expiryDate.toISOString().slice(0,10) }}</h4>
+    <h4 [title]="warranty.history[warranty.history.length-1].purchaseDate | date: 'medium'"><span style="font-weight: bolder">Дата покупки: </span> {{ warranty.history[warranty.history.length-1].purchaseDate | date:'short' }}</h4>
+    <h4 [title]="warranty.history[warranty.history.length-1].expiryDate | date: 'medium'"><span style="font-weight: bolder">Гарантийный срок до: </span> {{ warranty.history[warranty.history.length-1].expiryDate | date: 'short' }}</h4>
     <h4><span style="font-weight: bolder">Продление гарантии: </span> {{ warranty.history[warranty.history.length-1].status }}</h4>
     <h4>
       <span style="font-weight: bolder">Статус: </span>

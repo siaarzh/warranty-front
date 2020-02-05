@@ -21,6 +21,6 @@ export class NotificationItemComponent implements OnInit {
   ngOnInit(): void {
     this.imagePath = this.warrantyService.getWarranty(this.notification.warrantyUUID).imagePath;
     this.notificationContentClean = this.notification.messageContent.replace(/<[^>]*>/g, '');
-    this.formattedSentDate = formatDistance(this.notification.dateSent, new Date(), { locale: ru }) + ' назад';
+    // this.formattedSentDate = formatDistance(this.notification.dateSent, new Date(), { locale: ru }) + ' назад';
   }
 }

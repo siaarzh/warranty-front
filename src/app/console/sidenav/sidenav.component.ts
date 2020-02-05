@@ -11,7 +11,7 @@ export class SidenavComponent implements OnInit {
   selectedMenuItem = 'warranties';
 
   nightMode = false;
-  nightModeText = 'night';
+  nightModeText = 'ночной';
 
   constructor(private route: ActivatedRoute) {}
 
@@ -30,11 +30,11 @@ export class SidenavComponent implements OnInit {
   }
 
   onSwitchNightMode(): void {
-    if (this.nightModeText === 'night') {
-      this.nightModeText = 'day';
+    if (this.nightModeText === 'ночной') {
+      this.nightModeText = 'дневной';
       this.nightMode = true;
     } else {
-      this.nightModeText = 'night';
+      this.nightModeText = 'ночной';
       this.nightMode = false;
     }
   }

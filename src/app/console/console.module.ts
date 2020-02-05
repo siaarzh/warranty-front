@@ -19,6 +19,7 @@ import { NotificationListComponent } from './notification/notification-list/noti
 import { NotificationItemComponent } from './notification/notification-list/notification-item/notification-item.component';
 import { NotificationMessageComponent } from './notification/notification-message/notification-message.component';
 import { NotificationStartComponent } from './notification/notification-start/notification-start.component';
+import { FancyDatePipe } from '../shared/fancy-date.pipe';
 
 @NgModule({
   imports: [ConsoleRoutingModule, NgZorroAntdModule, CommonModule, FormsModule, ScrollingModule],
@@ -37,6 +38,7 @@ import { NotificationStartComponent } from './notification/notification-start/no
     NotificationItemComponent,
     NotificationMessageComponent,
     NotificationStartComponent,
+    FancyDatePipe,
   ],
 })
 export class ConsoleModule {}

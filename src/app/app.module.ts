@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,12 +9,12 @@ import { AppComponent } from './app.component';
 import { IconsProviderModule } from './icons-provider.module';
 import { registerLocaleData } from '@angular/common';
 
-import en from '@angular/common/locales/en';
+import ru from '@angular/common/locales/ru';
 
-import { NgZorroAntdModule, NZ_I18N, en_US, NzBreadCrumbModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, ru_RU, NzBreadCrumbModule } from 'ng-zorro-antd';
 import { HomeModule } from './home/home.module';
 
-registerLocaleData(en);
+registerLocaleData(ru);
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,9 +28,12 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NzBreadCrumbModule,
-    HomeModule
+    HomeModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: NZ_I18N, useValue: ru_RU },
+    { provide: LOCALE_ID, useValue: 'ru' },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
