@@ -3,6 +3,19 @@
 >
   <div style="flex-grow: 1">
     <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
+      <li
+      routerLink="/"
+      nz-menu-item
+      nz-tooltip
+      [nzTitle]="sidenavCollapsed ? 'На главную' : ''"
+      style="position: relative"
+      >
+        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+          <img height="40" width="40" src="../assets/warrantify_logo.svg" alt="warrantify-logo"/>
+        </div>
+
+      </li>
+
       <!--   NOTIFICATIONS   -->
       <li
         routerLink="./notification"
@@ -14,7 +27,7 @@
         style="position: relative"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../../../assets/bell_icon.svg" alt="bell-icon"/>
+          <img class="menu-icon" src="../assets/bell_icon.svg" alt="bell-icon"/>
         </div>
         <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
@@ -44,7 +57,7 @@
         style="position: relative"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../../../assets/warranty_icon.svg" alt="warranty-icon"/>
+          <img class="menu-icon" src="../assets/warranty_icon.svg" alt="warranty-icon"/>
         </div>
         <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
@@ -69,7 +82,7 @@
         (click)="onSelectSearch()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../../../assets/search_icon.svg" alt="search-icon"/>
+          <img class="menu-icon" src="../assets/search_icon.svg" alt="search-icon"/>
         </div>
         <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
@@ -93,7 +106,7 @@
         (click)="onSelectHelp()"
       >
         <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../../../assets/help_icon.svg" alt="search-icon"/>
+          <img class="menu-icon" src="../assets/help_icon.svg" alt="search-icon"/>
         </div>
         <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
@@ -151,7 +164,7 @@
       <li nz-menu-item nzDisabled class="popover-item">
         <a (click)="onSwitchNightMode()">
           <i nz-icon>
-            <img class="popover-icon disabled" width="14" src="../../../assets/night_mode_icon.svg" alt="night-mode-icon"/>
+            <img class="popover-icon disabled" width="14" src="../assets/night_mode_icon.svg" alt="night-mode-icon"/>
           </i>
           Включить {{ nightModeText }} режим
           <nz-switch nzDisabled [ngModel]="nightMode" nzSize="small" style="margin-left: 10px"></nz-switch>
