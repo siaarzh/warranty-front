@@ -1,8 +1,10 @@
+@import "variables"
+
 $text-color: #564787
 
 nz-header
   position: relative
-  width: 100%
+  //width: 100%
   color: white
   background-color: white
 
@@ -34,6 +36,9 @@ nz-header
 
 .header-menu
   line-height: 64px
+
+.header-content
+  @extend %section-margins
 
 .flex-container
   padding-top: 0

@@ -1,15 +1,20 @@
+@import "variables"
+
 nz-content
   margin-top: 2px
-  padding-left: 50px
-  padding-right: 50px
+  background-color: $home-background-color-lightblue
 
-.hero-header
-  padding-right: 50px
-  font-size: 42px
+.hero
+  div
+    @extend %section-margins
 
-.hero-subheader
-  padding-right: 50px
-  font-size: 30px
+.hero-content
+  margin: 2em
+  h1
+    font-size: 2.625em
+    font-weight: bolder
+  h3
+    font-size: 1.750em
 
 button
   width: 262px
@@ -18,7 +23,17 @@ button
 img
   z-index: -50
 
-.home-start-how-to
+.how-to
+  background-color: $home-background-color-gray
   div
-    img
-      filter: invert(28%) sepia(15%) saturate(1953%) hue-rotate(213deg) brightness(97%) contrast(87%)
+    @extend %section-margins
+
+.how-to-step
+  margin: 2em
+  img
+    @extend %svg-main-color
+    display: block
+    margin: auto
+    min-height: $icon-height * 4
+  h2
+    line-height: 40px
