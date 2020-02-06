@@ -1,4 +1,4 @@
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Вход" (nzOnCancel)="handleCancel()" (nzAfterOpen)="onAuthModalOpen()">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Вход" (nzOnCancel)="handleCancel()" (nzAfterOpen)="onAuthModalOpen()" [nzFooter]="null">
   <div>
     <nz-tabset [(nzSelectedIndex)]="selectedAuthModalTab">
 
@@ -8,7 +8,7 @@
         <form nz-form class="otp-login-form" [formGroup]="authOTPForm">
           <nz-form-item>
             <div nz-row>
-              <nz-form-label [nzSpan]="5" nzOffset="1">Моб. номер</nz-form-label>
+              <nz-form-label [nzSpan]="5" nzOffset="1">Моб. ном.</nz-form-label>
               <nz-form-control [nzSpan]="17" nzErrorTip="Введите номер мобильного телефона">
                 <nz-input-group nzPrefixIcon="mobile">
                   <input
@@ -123,13 +123,11 @@
           <nz-form-item>
             <div nz-row>
               <nz-form-control [nzSpan]="16" nzOffset="6">
-                <div nz-row nzType="flex" nzJustify="start">
-                  <div nz-col nzSpan="12">
+
                     <label nz-checkbox formControlName="remember">
                       <span>Запомнить меня</span>
                     </label>
-                  </div>
-                </div>
+
               </nz-form-control>
             </div>
           </nz-form-item>
@@ -191,10 +189,10 @@
     <!--      </nz-form-item>-->
 
   </div>
-  <div *nzModalFooter>
-    <span>Modal Footer: </span>
-    <!--    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>-->
-    <button nz-button nzType="default" (click)="onReset()">Reset</button>
-    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>
-  </div>
+<!--  <div *nzModalFooter>-->
+<!--    <span>Modal Footer: </span>-->
+<!--    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>-->
+<!--    <button nz-button nzType="default" (click)="onReset()">Reset</button>-->
+<!--    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>-->
+<!--  </div>-->
 </nz-modal>
