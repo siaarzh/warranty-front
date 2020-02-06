@@ -157,7 +157,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   keyUpEvent(event, index) {
     // TODO: - Remove detection of keyUpEvent in phone control, since it directly invokes the "Zaprosit SMS kod" button
     let pos = index;
-    if (event.code === 'Backspace') {
+    if (event.code === 'Backspace' || event.code === 'Delete') {
       pos = index - 1;
     } else {
       pos = index + 1;
