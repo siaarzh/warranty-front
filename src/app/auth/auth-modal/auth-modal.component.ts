@@ -8,7 +8,7 @@ import { AuthModalService } from './auth-modal.service';
 @Component({
   selector: 'app-auth-modal',
   templateUrl: './auth-modal.component.html',
-  styleUrls: ['./auth-modal.component.sass']
+  styleUrls: ['./auth-modal.component.sass'],
 })
 export class AuthModalComponent implements OnInit, OnDestroy {
   // Modal
@@ -30,15 +30,12 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   OTPRememberPhone = true;
   @Input() OTPLength = 4;
   @ViewChildren('OTPFormRow') rows: QueryList<ElementRef>;
-  @ViewChild('PhoneInput', {static: true}) phoneRef: ElementRef;
+  @ViewChild('PhoneInput', { static: true }) phoneRef: ElementRef;
 
   // EMAIL
   authEmailForm: FormGroup;
 
-  constructor(
-    private authModalService: AuthModalService,
-    private router: Router,
-  ) { }
+  constructor(private authModalService: AuthModalService, private router: Router) {}
 
   ngOnInit() {
     this.authModalSub = this.authModalService.isShown.subscribe((show: boolean) => {
@@ -90,14 +87,12 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     }
 
     this.authOTPForm = new FormGroup({
-      phone: new FormControl({
+      phone: new FormControl(
+        {
           value: userPhone,
           disabled: false,
         },
-        [
-          Validators.required,
-          Validators.pattern(/\d{11}/),
-        ],
+        [Validators.required, Validators.pattern(/\d{11}/)],
       ),
       otp: OTPInputs,
       remember: new FormControl(this.OTPRememberPhone),
@@ -119,7 +114,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
 
   get invalidOTP() {
     let invalidState = this.authOTPForm.controls.otp.invalid;
-    this.OTPControls.forEach((key) => {
+    this.OTPControls.forEach(key => {
       invalidState = invalidState && key.touched;
     });
     return invalidState;
@@ -189,7 +184,6 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-
     // if (!this.OTPRequested && this.authOTPForm.controls.phone.valid) {
     //   console.log('phone number OK!');
     //   this.getOTP();
@@ -209,7 +203,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
       }, 1000);
     } else {
       this.authOTPForm.patchValue({
-        otp: ['', '', '', '']
+        otp: ['', '', '', ''],
       });
     }
   }
@@ -217,12 +211,12 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   onAuthModalOpen() {
     // focus on phone input when modal is open
     this.authOTPForm.patchValue({
-      phone: this.authModalService.phone ? this.authModalService.phone : ' '
+      phone: this.authModalService.phone ? this.authModalService.phone : ' ',
     });
     this.focusOnPhoneInput();
   }
 
-  private focusOnPhoneInput(timeout: number = 50) {
+  private focusOnPhoneInput(timeout = 50) {
     setTimeout(() => {
       // give the tabset time to animate scroll
       this.authOTPForm.controls.phone.markAsPristine();
