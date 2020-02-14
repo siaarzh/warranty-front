@@ -6,18 +6,9 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { IMaskModule } from 'angular-imask';
 
 @NgModule({
-  declarations: [
-    AuthModalComponent,
-  ],
-  imports: [
-    CommonModule,
-    NgZorroAntdModule,
-    ReactiveFormsModule,
-    IMaskModule,
-  ],
-  exports: [
-    AuthModalComponent,
-  ],
+  declarations: [AuthModalComponent],
+  imports: [CommonModule, NgZorroAntdModule, ReactiveFormsModule, IMaskModule],
+  exports: [AuthModalComponent],
   providers: [],
 })
-export class AuthModule { }
+export class AuthModule {}

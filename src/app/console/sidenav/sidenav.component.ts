@@ -16,7 +16,7 @@ export class SidenavComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.route);
+    console.log('DEBUG: ', this.route);
   }
 
   onSelectSearch(): void {
