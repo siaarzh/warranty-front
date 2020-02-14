@@ -1,0 +1,12 @@
+<svg id="banner_cert" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="Rectangle_68" data-name="Rectangle 68" fill="none" stroke="#707070" stroke-width="1" opacity="0">
+    <rect width="80" height="80" stroke="none"/>
+    <rect x="0.5" y="0.5" width="79" height="79" fill="none"/>
+  </g>
+  <g id="award-48" transform="translate(14 16)">
+    <path id="Path_53" data-name="Path 53" d="M14.579,34.849,8,48.619l6.828-.759,3.793,6.069,6.364-13.7" transform="translate(0 -7.929)" fill="none" stroke="#111" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_54" data-name="Path 54" d="M44.017,34.849,50.6,48.619l-6.828-.759-3.793,6.069-6.364-13.7" transform="translate(-6.182 -7.929)" fill="none" stroke="#111" stroke-miterlimit="10" stroke-width="2"/>
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="15" cy="15" r="15" transform="translate(11.414 2)" fill="none" stroke="#111" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_55" data-name="Path 55" d="M22,17.92l5.247-.721,2.381-4.732,2.308,4.768,5.236.8L33.351,21.7l.856,5.228-4.67-2.5L24.83,26.86l.935-5.214Z" transform="translate(-3.379 -2.526)" fill="none" stroke="#111" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>

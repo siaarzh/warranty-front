@@ -1,0 +1,10 @@
+<svg id="banner_shop" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="Rectangle_66" data-name="Rectangle 66" fill="none" stroke="#707070" stroke-width="1" opacity="0">
+    <rect width="80" height="80" stroke="none"/>
+    <rect x="0.5" y="0.5" width="79" height="79" fill="none"/>
+  </g>
+  <g id="bag-09" transform="translate(16 16)">
+    <path id="Path_69" data-name="Path 69" d="M43,46H5L9,30V14H39V30Z" fill="none" stroke="#111" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_70" data-name="Path 70" d="M17,20V9a7,7,0,0,1,7-7h0a7,7,0,0,1,7,7V20" fill="none" stroke="#111" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>
