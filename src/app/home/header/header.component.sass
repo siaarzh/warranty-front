@@ -1,23 +1,20 @@
 @import "variables"
 
-$text-color: #564787
-
 nz-header
   position: relative
   //width: 100%
   color: white
   background-color: white
 
-#nav
-  border-bottom-color: green
-  button
-    background-color: white
-    border-color: $text-color
-    color: $text-color
-    &:hover
-      border-color: $text-color
-      background-color: $text-color
-      color: white
+
+button.menu-button
+  background-color: white
+  border-color: $main-color
+  color: $main-color
+  &:hover
+    border-color: $main-color
+    background-color: $main-color
+    color: white
 
 #nav ul
   float: right
@@ -26,13 +23,13 @@ nz-header
     &:focus
       outline: none
     &:active
-      color: $text-color
-      border-bottom-color: $text-color
+      color: $main-color
+      border-bottom-color: $main-color
     &:hover
       // TODO: Move hovering over item to theme.less
-      color: $text-color
-      border-bottom-color: $text-color
-      background-color: rgba($text-color, 0.1)
+      color: $main-color
+      border-bottom-color: $main-color
+      background-color: rgba($main-color, 0.1)
 
 .header-menu
   line-height: 64px
@@ -52,8 +49,8 @@ nz-header
 
 // TODO: Move selected item to theme.less
 .ant-menu-item-selected
-  color: $text-color
-  border-bottom-color: $text-color
+  color: $main-color
+  border-bottom-color: $main-color
 
 //.ant-menu-item
 .header-menu-logo
