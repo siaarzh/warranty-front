@@ -4,16 +4,23 @@ import { AuthModalService } from '../../auth/auth-modal/auth-modal.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.sass']
+  styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
+  isLoggedIn: boolean;
 
-  constructor(private authModalSub: AuthModalService) { }
+  constructor(private authModalSub: AuthModalService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.isLoggedIn = this.authModalSub.isLoggedIn();
   }
 
-  onLogin() {
-    this.authModalSub.show();
+  onLoginLogout(): void {
+    if (!this.isLoggedIn) {
+      this.authModalSub.show();
+    } else {
+      this.authModalSub.signout();
+      this.isLoggedIn = false;
+    }
   }
 }

@@ -7,7 +7,7 @@
         nzSpan="4"
         class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4"
       >
-        <h2 class="header-menu-logo" routerLink="/home">
+        <h2 class="header-menu-logo" routerLink="./main">
           <img src="../../../assets/warrantify_logo.svg" alt="logo" /><span>warrantify.me</span>
         </h2>
       </div>
@@ -17,15 +17,11 @@
         class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-14 ant-col-lg-17 ant-col-xl-17 ant-col-xxl-18"
       >
         <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu">
-<!--          <li nz-menu-item routerLink="./howitworks">как это работает</li>-->
-<!--          <li nz-menu-item routerLink="./pricing">цены</li>-->
-<!--          <li nz-menu-item routerLink="./about">о нас</li>-->
-<!--          <li nz-menu-item routerLink="./contact">контакты</li>-->
-          <li nz-menu-item routerLink="/home">главная</li>
-          <li nz-menu-item routerLink="/home">как это работает</li>
-          <li nz-menu-item routerLink="/home">цены</li>
-          <li nz-menu-item routerLink="/home">о нас</li>
-          <li nz-menu-item routerLink="/home">контакты</li>
+          <li nz-menu-item routerLink="./main">главная</li>
+          <li nz-menu-item routerLink="./howitworks">как это работает</li>
+          <li nz-menu-item routerLink="./about">о нас</li>
+          <li nz-menu-item routerLink="./contact">контакты</li>
+          <li nz-menu-item *ngIf="isLoggedIn" routerLink="/console">мои гарантии</li>
         </ul>
       </div>
       <div
@@ -33,7 +29,7 @@
         nzSpan="2"
         class="nav nav-hide ant-col ant-col-xs-2 ant-col-sm-2 ant-col-md-2 ant-col-lg-2 ant-col-xl-2 ant-col-xxl-2"
       >
-        <button nz-button nzType="default" (click)="onLogin()">вход</button>
+        <button nz-button nzType="default" (click)="onLoginLogout()">{{ isLoggedIn ? 'выход' : 'вход' }}</button>
       </div>
     </div>
   </nz-header>

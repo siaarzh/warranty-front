@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     if (this.authModalService.isLoggedIn()) {
       return true;
     } else {
-      this.router.navigate(['/home/start']);
+      this.router.navigate([state.url]);
       setTimeout(() => {
         this.authModalService.show();
       }, 50);

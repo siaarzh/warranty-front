@@ -1,6 +1,6 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription, timer } from 'rxjs';
 
 import { AuthModalService } from './auth-modal.service';
@@ -48,9 +48,13 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // TODO: Implement takeUntil() pipe to manage all the subscriptions
+    //    see https://stackoverflow.com/a/42695571
     this.authModalSub.unsubscribe();
     this.authOTPSub.unsubscribe();
-    this.OTPTimer.unsubscribe();
+    if (this.OTPTimer) {
+      this.OTPTimer.unsubscribe();
+    }
   }
 
   handleCancel(): void {
@@ -141,7 +145,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     this.focusOnPhoneInput();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const phone = this.authOTPForm.controls.phone.value;
     const otp = this.authOTPForm.controls.otp.value;
 
@@ -161,7 +165,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     }
   }
 
-  onAuthModalOpen() {
+  onAuthModalOpen(): void {
     // focus on phone input when modal is open
     this.authOTPForm.patchValue({
       phone: this.authModalService.phone ? this.authModalService.phone : ' ',
@@ -169,7 +173,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     this.focusOnPhoneInput();
   }
 
-  private focusOnPhoneInput(timeout = 50) {
+  private focusOnPhoneInput(timeout = 50): void {
     setTimeout(() => {
       // give the tab-set time to animate scroll
       this.authOTPForm.controls.phone.markAsPristine();
@@ -177,7 +181,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
     }, timeout);
   }
 
-  private focusOnOTPInput(timeout = 50) {
+  private focusOnOTPInput(timeout = 50): void {
     setTimeout(() => {
       // give the tab-set time to animate scroll
       this.otpRef.nativeElement.focus();
