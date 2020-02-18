@@ -6,12 +6,14 @@ export interface AuthOTPRequestData {
   otp: string;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthModalService {
-
   OTPData: AuthOTPRequestData;
+  private loggedIn: boolean = localStorage.getItem('loggedIn') === 'true';
 
-  constructor() {}
+  isLoggedIn() {
+    return this.loggedIn;
+  }
 
   // MODAL UI
 
@@ -39,4 +41,17 @@ export class AuthModalService {
     return localStorage.getItem('phone');
   }
 
+  checkOTP(otp: string) {
+    return otp === '1234';
+  }
+
+  signin(phone: string, otp: string) {
+    this.loggedIn = this.checkOTP(otp);
+    localStorage.setItem('loggedIn', 'true');
+  }
+
+  signout() {
+    this.loggedIn = false;
+    localStorage.setItem('loggedIn', 'false');
+  }
 }

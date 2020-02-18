@@ -10,10 +10,12 @@ import { WarrantyDetailComponent } from './warranty/warranty-detail/warranty-det
 import { WarrantyStartComponent } from './warranty/warranty-start/warranty-start.component';
 import { NotificationStartComponent } from './notification/notification-start/notification-start.component';
 import { NotificationMessageComponent } from './notification/notification-message/notification-message.component';
+import { AuthGuard } from '../auth/auth-modal/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     component: ConsoleComponent,
     children: [
       { path: '', redirectTo: 'warranty', pathMatch: 'full' },

@@ -142,21 +142,15 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    // if (!this.OTPRequested && this.authOTPForm.controls.phone.valid) {
-    //   console.log('phone number OK!');
-    //   this.getOTP();
-    // } else {
-    //   console.log('phone number invalid');
-    //   return;
-    // }
-    // if (this.OTPRequested) {
-    //   this.onReset();
-    // }
-    if (this.authOTPForm.controls.otp.value === '1234') {
+    const phone = this.authOTPForm.controls.phone.value;
+    const otp = this.authOTPForm.controls.otp.value;
+
+    if (this.authModalService.checkOTP(otp)) {
       console.log('DEBUG: ', 'log in data submitted. loading user console...');
       this.isLoggingIn = true;
       setTimeout(() => {
         // dummy loading spinner
+        this.authModalService.signin(phone, otp);
         this.router.navigate(['/console']);
       }, 1000);
     } else {

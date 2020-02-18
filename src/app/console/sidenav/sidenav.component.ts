@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthModalService } from '../../auth/auth-modal/auth-modal.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -13,7 +14,7 @@ export class SidenavComponent implements OnInit {
   nightMode = false;
   nightModeText = 'ночной';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router, private authModalService: AuthModalService) {}
 
   ngOnInit(): void {
     console.log('DEBUG: ', this.route);
@@ -37,5 +38,10 @@ export class SidenavComponent implements OnInit {
       this.nightModeText = 'ночной';
       this.nightMode = false;
     }
+  }
+
+  onLogout() {
+    this.authModalService.signout();
+    this.router.navigate(['/']);
   }
 }
