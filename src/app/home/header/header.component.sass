@@ -7,7 +7,7 @@ nz-header
   background-color: white
 
 
-button.menu-button
+button.login-button
   background-color: white
   border-color: $main-color
   color: $main-color
@@ -63,3 +63,14 @@ button.menu-button
     margin-left: 10px
   &:focus
     outline: none
+
+@media screen and (max-width: 920px)
+  .header-menu-logo
+    span
+      visibility: hidden
+
+@media screen and (max-width: 1100px)
+  .header-menu
+    li
+      padding-right: 12px
+      padding-left: 8px
