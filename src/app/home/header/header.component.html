@@ -16,10 +16,10 @@
         class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-14 ant-col-lg-16 ant-col-xl-17 ant-col-xxl-16"
       >
         <ul nz-menu class="header-menu" [nzTheme]="'light'" [nzMode]="'horizontal'">
-          <li nz-menu-item routerLink="./main">главная</li>
-          <li nz-menu-item routerLink="./howitworks">как это работает</li>
-          <li nz-menu-item routerLink="./about">о нас</li>
-          <li nz-menu-item routerLink="./contact">контакты</li>
+          <li nz-menu-item routerLink="./main" routerLinkActive="ant-menu-item-selected">главная</li>
+          <li nz-menu-item routerLink="./howitworks" routerLinkActive="ant-menu-item-selected">как это работает</li>
+          <li nz-menu-item routerLink="./about" routerLinkActive="ant-menu-item-selected">о нас</li>
+          <li nz-menu-item routerLink="./contact" routerLinkActive="ant-menu-item-selected">контакты</li>
           <li nz-menu-item *ngIf="isLoggedIn" routerLink="/console">мои гарантии</li>
         </ul>
       </div>
