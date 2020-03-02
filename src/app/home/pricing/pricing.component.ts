@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.sass'],
 })
-export class PricingComponent {
-
-}
+export class PricingComponent {}

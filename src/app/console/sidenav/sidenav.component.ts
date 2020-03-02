@@ -40,7 +40,7 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  onLogout() {
+  onLogout(): void {
     this.authModalService.signout();
     this.router.navigate(['/']);
   }

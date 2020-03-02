@@ -11,7 +11,7 @@ export class AuthModalService {
   OTPData: AuthOTPRequestData;
   private loggedIn: boolean = localStorage.getItem('loggedIn') === 'true';
 
-  isLoggedIn() {
+  isLoggedIn(): boolean {
     return this.loggedIn;
   }
 
@@ -19,38 +19,38 @@ export class AuthModalService {
 
   isShown = new Subject<boolean>();
 
-  show() {
+  show(): void {
     this.isShown.next(true);
   }
 
-  hide() {
+  hide(): void {
     this.isShown.next(false);
   }
 
   // AUTHENTICATION SERVICE
 
-  setPhone(phone: string) {
+  setPhone(phone: string): void {
     localStorage.setItem('phone', phone);
   }
 
-  deletePhone() {
+  deletePhone(): void {
     localStorage.removeItem('phone');
   }
 
-  get phone() {
+  get phone(): string {
     return localStorage.getItem('phone');
   }
 
-  checkOTP(otp: string) {
+  checkOTP(otp: string): boolean {
     return otp === '1234';
   }
 
-  signin(phone: string, otp: string) {
+  signin(phone: string, otp: string): void {
     this.loggedIn = this.checkOTP(otp);
     localStorage.setItem('loggedIn', 'true');
   }
 
-  signout() {
+  signout(): void {
     this.loggedIn = false;
     localStorage.setItem('loggedIn', 'false');
   }
