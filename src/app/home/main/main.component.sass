@@ -86,7 +86,7 @@ nz-content
 
 .review
   margin-top: 2em
-  margin-bottom: 2em
+  margin-bottom: 0
   div
     @extend %section-margins
 
@@ -115,3 +115,21 @@ nz-content
   font-size: 1em
   font-style: italic
   text-align: right
+
+.call-to-action
+  div
+    padding: 3em 2em
+    @extend %section-margins
+    h3
+      font-weight: bold
+      display: block
+      text-align: center
+    button
+      @extend %cta-button-dims
+      display: block
+      margin: 1.5em auto 0.5em auto
+    p
+      filter: opacity(0.8)
+      a
+        color: $main-color
+        text-decoration: underline
