@@ -3,13 +3,13 @@
     <div nz-row class="footer-logo">
       <img src="../assets/logo_v4_icon_dark.svg" alt="logo_dark"><span>warrantify.me</span>
     </div>
-    <div nz-row class="footer-address">
-      <a href="https://go.2gis.com/zn8wn"><p>Абиша Кекильбайулы, 38а<br>Алматы 050060</p></a>
+    <div nz-row class="footer-address" nzJustify="start">
+      <a [href]="companyAddress2gisCoordinates"><p [innerHTML]="companyAddress"></p></a>
     </div>
     <div nz-row class="footer-social">
-      <a><img class="footer-icon" src="../assets/facebook.svg" alt="facebook-icon"/></a>
-      <a><img class="footer-icon" src="../assets/vk.svg" alt="vk-icon"/></a>
-      <a><img class="footer-icon" src="../assets/instagram.svg" alt="instagram-icon"/></a>
+      <a [href]="fbPage"><img class="footer-icon" src="../assets/facebook.svg" alt="facebook-icon"/></a>
+      <a [href]="vkPage"><img class="footer-icon" src="../assets/vk.svg" alt="vk-icon"/></a>
+      <a [href]="igPage"><img class="footer-icon" src="../assets/instagram.svg" alt="instagram-icon"/></a>
     </div>
   </div>
   <div nz-col class="footer-section footer-links" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" nzXXl="8">
