@@ -13,6 +13,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { AuthModule } from '../auth/auth-modal/auth.module';
 import { FooterComponent } from './footer/footer.component';
 import { TosComponent } from './tos/tos.component';
+import { PartnershipComponent } from './partnership/partnership.component';
 
 @NgModule({
   imports: [HomeRoutingModule, NgZorroAntdModule, CommonModule, AuthModule],
@@ -26,6 +27,7 @@ import { TosComponent } from './tos/tos.component';
     PricingComponent,
     FooterComponent,
     TosComponent,
+    PartnershipComponent,
   ],
 })
 export class HomeModule {}

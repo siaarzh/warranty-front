@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { TosComponent } from './tos/tos.component';
+import { PartnershipComponent } from './partnership/partnership.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'pricing', component: PricingComponent },
       { path: 'tos', component: TosComponent },
+      { path: 'partnership', component: PartnershipComponent },
     ],
   },
 ];
