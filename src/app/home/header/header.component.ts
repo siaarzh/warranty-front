@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AuthModalService } from '../../auth/auth-modal/auth-modal.service';
 
 @Component({
@@ -8,6 +8,19 @@ import { AuthModalService } from '../../auth/auth-modal/auth-modal.service';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean;
+  toggle = false;
+
+  toggleMenu(): void {
+    this.toggle = !this.toggle;
+  }
+
+  @HostListener('document:click')
+  clickout() {
+    if (!this.toggle) {
+      console.log('clicked outside');
+    }
+    this.toggle = false;
+  }
 
   constructor(private authModalSub: AuthModalService) {}
 
