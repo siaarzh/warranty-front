@@ -1,6 +1,6 @@
-<div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle" style="padding: 12px 24px 0 24px;">
-  <div nz-col nzSpan="20">
-    <h3 id="list-header" nz-tooltip [nzTooltipTitle]="category" [nzTooltipPlacement]="'bottom'">
+<div nz-row class="list-header" nzType="flex" nzJustify="space-between" nzAlign="middle">
+  <div nz-col class="list-header-text" nzSpan="20">
+    <h3 [title]="category">
       <!--  TODO: Create/apply inbox icon  -->
 <!--      <img-->
 <!--        class="list-icon-disabled"-->
@@ -11,8 +11,8 @@
       {{ category }}
     </h3>
   </div>
-  <div nz-col nzSpan="4">
-    <h3 style="text-align: right;">
+  <div nz-col class="list-header-badge" nzSpan="4">
+    <h3>
       <nz-badge
         *ngIf="notifications.length > 0"
         [nzCount]="unreadCount"
@@ -22,9 +22,9 @@
   </div>
 </div>
 
-<nz-divider></nz-divider>
+<nz-divider class="list-divider"></nz-divider>
 
-<div nz-row>
+<div nz-row class="list-container">
   <div nz-col>
     <!--        TODO: Enable virtual scroll      -->
     <!--      <cdk-virtual-scroll-viewport itemSize="20" class="demo-infinite-container">-->
