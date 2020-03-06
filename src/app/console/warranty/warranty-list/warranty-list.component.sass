@@ -1,22 +1,9 @@
 @import "variables"
 
-.demo-infinite-container
-  height: 100vh
-  border: none
+$divider-height: 1px
+$header-height: 48px
 
-nz-list
-  padding: 0
-
-nz-list-item
-  padding: 0
-
-div.ant-list-header.ng-star-inserted
-  padding: 0
-
-cdk-virtual-scroll-viewport
-  height: 100vh
-
-  // Bonus points
+%scroll-bar-style
   &::-webkit-scrollbar
     width: 6px
     background-color: #F5F5F5
@@ -27,22 +14,41 @@ cdk-virtual-scroll-viewport
   &::-webkit-scrollbar-thumb
     background-color: rgba(0,0,0,0.2)
 
-#list-header
-  color: #999
-  white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
+nz-list, nz-list-item
+  padding: 0
 
 // TODO: Make this type of icon behaviour global
-.list-icon
+img.list-icon
   filter: invert(28%) sepia(17%) saturate(1717%) hue-rotate(213deg) brightness(98%) contrast(90%)
   &-disabled
     filter: invert(47%) sepia(1%) saturate(0%) hue-rotate(182deg) brightness(93%) contrast(89%)
-
-nz-divider
-  margin: 0
 
 app-warranty-item
   width: 100%
   padding: 0
   border: none
+
+.list-header
+  height: $header-height
+  padding: 0 24px
+  div
+    height: 40px
+    h3
+      color: #999
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      margin-bottom: 0
+  div.list-header-badge
+    line-height: 40px
+    nz-badge
+      vertical-align: middle
+
+nz-divider.list-divider
+  margin: 0
+  height: $divider-height
+
+.list-container
+  overflow-y: auto
+  height: calc(100vh - #{$header-height} - #{$divider-height})
+  @extend %scroll-bar-style

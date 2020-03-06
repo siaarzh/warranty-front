@@ -1,29 +1,26 @@
-<div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle" style="padding: 12px 24px 0 24px;">
-  <div nz-col nzSpan="20">
-    <h3 id="list-header" nz-tooltip [nzTooltipTitle]="category" [nzTooltipPlacement]="'bottom'">
+<div nz-row class="list-header" nzType="flex" nzJustify="space-between" nzAlign="middle">
+  <div nz-col class="list-header-text" nzSpan="20">
+    <h3 [title]="category">
       <img
         class="list-icon-disabled"
-        style="filter: invert(47%) sepia(1%) saturate(0%) hue-rotate(182deg) brightness(93%) contrast(89%);"
         src="../../../../assets/warranty_icon.svg"
         alt=""
       />
       {{ category }}
     </h3>
   </div>
-  <div nz-col nzSpan="4">
-    <h3 style="text-align: right;">
-      <nz-badge
-        *ngIf="warranties.length > 0"
-        [nzCount]="warranties.length"
-        [nzStyle]="{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }"
-      ></nz-badge>
-    </h3>
+  <div nz-col class="list-header-badge" nzSpan="4">
+    <nz-badge
+      *ngIf="warranties.length > 0"
+      [nzCount]="warranties.length"
+      [nzStyle]="{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }"
+    ></nz-badge>
   </div>
 </div>
 
-<nz-divider></nz-divider>
+<nz-divider class="list-divider"></nz-divider>
 
-<div nz-row>
+<div nz-row class="list-container">
   <div nz-col>
     <!--        TODO: Enable virtual scroll      -->
     <!--      <cdk-virtual-scroll-viewport itemSize="20" class="demo-infinite-container">-->
