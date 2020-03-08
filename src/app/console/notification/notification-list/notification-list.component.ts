@@ -5,7 +5,7 @@ import { NotificationService } from '../notification.service';
 @Component({
   selector: 'app-notification-list',
   templateUrl: './notification-list.component.html',
-  styleUrls: ['./notification-list.component.sass'],
+  styleUrls: ['../../../shared/item-lists.sass', './notification-list.component.sass'],
 })
 export class NotificationListComponent implements OnInit {
   category: string;

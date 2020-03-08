@@ -5,7 +5,7 @@ import { Warranty } from '../warranty.model';
 @Component({
   selector: 'app-warranty-list',
   templateUrl: './warranty-list.component.html',
-  styleUrls: ['./warranty-list.component.sass'],
+  styleUrls: ['../../../shared/item-lists.sass', './warranty-list.component.sass'],
 })
 export class WarrantyListComponent implements OnInit {
   category: string;
