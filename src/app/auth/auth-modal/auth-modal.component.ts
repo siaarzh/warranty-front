@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Subscription, timer } from 'rxjs';
 
 import { AuthModalService } from './auth-modal.service';
@@ -20,7 +20,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   // OTP
   private authOTPSub: Subscription;
   private OTPTimer: Subscription;
-  authOTPForm: FormGroup;
+  authOTPForm: UntypedFormGroup;
   invalidOTP = false;
   OTPRequested = false;
   OTPTimerStarted = false;
@@ -30,7 +30,7 @@ export class AuthModalComponent implements OnInit, OnDestroy {
   @ViewChild('OTPInput', { static: false }) otpRef: ElementRef;
 
   // EMAIL
-  authEmailForm: FormGroup;
+  authEmailForm: UntypedFormGroup;
 
   constructor(private authModalService: AuthModalService, private router: Router) {}
 
@@ -71,31 +71,31 @@ export class AuthModalComponent implements OnInit, OnDestroy {
       userPhone = this.authModalService.phone;
     }
 
-    this.authOTPForm = new FormGroup({
-      phone: new FormControl(
+    this.authOTPForm = new UntypedFormGroup({
+      phone: new UntypedFormControl(
         {
           value: userPhone,
           disabled: false,
         },
         [Validators.required, Validators.pattern(/\d{11}/)],
       ),
-      otp: new FormControl(
+      otp: new UntypedFormControl(
         {
           value: null,
           disabled: false,
         },
         [Validators.required, Validators.pattern(/\d{4}/)],
       ),
-      remember: new FormControl(this.OTPRememberPhone),
+      remember: new UntypedFormControl(this.OTPRememberPhone),
     });
 
     // email login form init:
     const userEmail = '';
     const userPassword = '';
 
-    this.authEmailForm = new FormGroup({
-      email: new FormControl(userEmail),
-      password: new FormControl(userPassword),
+    this.authEmailForm = new UntypedFormGroup({
+      email: new UntypedFormControl(userEmail),
+      password: new UntypedFormControl(userPassword),
     });
   }
 
