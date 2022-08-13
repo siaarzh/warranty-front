@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +33,7 @@ registerLocaleData(ru);
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },
     { provide: LOCALE_ID, useValue: 'ru' },
+    Title
   ],
   bootstrap: [AppComponent],
 })
