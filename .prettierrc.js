@@ -1,7 +1,17 @@
 module.exports =  {
-  semi:  true,
-  trailingComma:  'all',
-  singleQuote:  true,
-  printWidth:  120,
-  tabWidth:  2,
-};
+  "parser": "typescript",
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+  "printWidth": 140,
+  "endOfLine": "auto",
+  "importOrder": ['^@angular(.*)$', '^(angular|date-fns)(.*)$', '^(ng-zorro-antd|@ant-design)(.*)$', '^(.*)(ngrx|rxjs)(.*)$', '^(.*)module(.*)$', '^(.*)service(.*)$', '^(.*)guard(.*)$', '^(.*)pipe(.*)$', '^[./]', '^.*$'],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ['typescript', "classProperties", "[\"decorators\", { \"decoratorsBeforeExport\": true }]"],
+}

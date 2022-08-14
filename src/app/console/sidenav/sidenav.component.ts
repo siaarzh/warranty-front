@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { AuthModalService } from '../../auth/auth-modal/auth-modal.service';
 
 @Component({

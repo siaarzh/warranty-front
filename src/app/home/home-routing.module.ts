@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { HowitworksComponent } from './howitworks/howitworks.component';
-import { HomeComponent } from './home.component';
+
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home.component';
+import { HowitworksComponent } from './howitworks/howitworks.component';
+import { MainComponent } from './main/main.component';
+import { PartnershipComponent } from './partnership/partnership.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { TosComponent } from './tos/tos.component';
-import { PartnershipComponent } from './partnership/partnership.component';
 
 const routes: Routes = [
   {

@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { formatDistance } from 'date-fns';
-import { ru } from 'date-fns/locale';
-import { Notification } from '../../notification.model';
+
+// import { formatDistance } from 'date-fns';
+// import { ru } from 'date-fns/locale';
+
 import { WarrantyService } from '../../../warranty/warranty.service';
+
+import { Notification } from '../../notification.model';
 
 @Component({
   selector: 'app-notification-item',

@@ -1,12 +1,30 @@
 <div nz-row>
   <div nz-col class="notification-message-content" nzSpan="24">
     <div nz-row nzJustify="space-between">
-      <div nz-col id="message-title-text" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="20" nzXXl="21">
+      <div
+        nz-col
+        id="message-title-text"
+        nzXs="24"
+        nzSm="24"
+        nzMd="24"
+        nzLg="24"
+        nzXl="20"
+        nzXXl="21">
         <h2>{{ notification.messageTitle }}</h2>
       </div>
-      <div nz-col id="message-title-icons" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="4" nzXXl="3">
+      <div
+        nz-col
+        id="message-title-icons"
+        nzXs="24"
+        nzSm="24"
+        nzMd="24"
+        nzLg="24"
+        nzXl="4"
+        nzXXl="3">
         <span
-          ><img src="../assets/archive_icon.svg" alt="archive"/><img src="../assets/trash_icon.svg" alt="delete"
+          ><img src="../assets/archive_icon.svg" alt="archive" /><img
+            src="../assets/trash_icon.svg"
+            alt="delete"
         /></span>
       </div>
     </div>
@@ -28,7 +46,7 @@
   <div nz-col id="message-sender-date" nzSpan="12">
     <p>
       <b>Отправлено: </b>
-      {{ notification.dateSent | date:'medium' }}
+      {{ notification.dateSent | date: 'medium' }}
     </p>
   </div>
 </div>
@@ -50,20 +68,47 @@
       </div>
       <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="19" nzXl="20" nzXXl="20">
         <nz-descriptions [nzTitle]="warrantyLink">
-          <nz-descriptions-item nzTitle="EAN">{{ warranty.ean }}</nz-descriptions-item>
-          <nz-descriptions-item nzTitle="Сер #">{{ warranty.sn }}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="EAN">{{
+            warranty.ean
+          }}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="Сер #">{{
+            warranty.sn
+          }}</nz-descriptions-item>
           <nz-descriptions-item nzTitle="Истекает">{{
-            warranty.history[warranty.history.length - 1].expiryDate | date:'short'
+            warranty.history[warranty.history.length - 1].expiryDate
+              | date: 'short'
           }}</nz-descriptions-item>
           <ng-template #warrantyLink>
             <div nz-row>
-              <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="20" nzXl="20" nzXXl="20">
-                <a [routerLink]="['/console', 'warranty', warrantyUUID]">{{ warranty.productName }}</a>
+              <div
+                nz-col
+                nzXs="24"
+                nzSm="24"
+                nzMd="24"
+                nzLg="20"
+                nzXl="20"
+                nzXXl="20">
+                <a [routerLink]="['/console', 'warranty', warrantyUUID]">{{
+                  warranty.productName
+                }}</a>
               </div>
-              <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="4" nzXl="4" nzXXl="4">
-                <nz-tag *ngIf="!warranty.history[warranty.history.length - 1].valid" [nzColor]="'red'">истекла</nz-tag>
-                <nz-tag *ngIf="warranty.history[warranty.history.length - 1].valid" [nzColor]="'green'"
-                >действительна</nz-tag
+              <div
+                nz-col
+                nzXs="24"
+                nzSm="24"
+                nzMd="24"
+                nzLg="4"
+                nzXl="4"
+                nzXXl="4">
+                <nz-tag
+                  *ngIf="!warranty.history[warranty.history.length - 1].valid"
+                  [nzColor]="'red'"
+                  >истекла</nz-tag
+                >
+                <nz-tag
+                  *ngIf="warranty.history[warranty.history.length - 1].valid"
+                  [nzColor]="'green'"
+                  >действительна</nz-tag
                 >
               </div>
             </div>

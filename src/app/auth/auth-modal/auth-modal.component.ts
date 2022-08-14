@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { Subscription, timer } from 'rxjs';
 
 import { AuthModalService } from './auth-modal.service';
@@ -77,14 +78,14 @@ export class AuthModalComponent implements OnInit, OnDestroy {
           value: userPhone,
           disabled: false,
         },
-        [Validators.required, Validators.pattern(/\d{11}/)],
+        [Validators.required, Validators.pattern(/\d{11}/)]
       ),
       otp: new UntypedFormControl(
         {
           value: null,
           disabled: false,
         },
-        [Validators.required, Validators.pattern(/\d{4}/)],
+        [Validators.required, Validators.pattern(/\d{4}/)]
       ),
       remember: new UntypedFormControl(this.OTPRememberPhone),
     });

@@ -11,28 +11,84 @@
   </div>
 </div>
 <div nz-row nzGutter="48">
-  <div nz-col class="warranty-detail-image-container" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="10" nzXXl="8">
+  <div
+    nz-col
+    class="warranty-detail-image-container"
+    nzXs="24"
+    nzSm="24"
+    nzMd="24"
+    nzLg="24"
+    nzXl="10"
+    nzXXl="8">
     <div class="warranty-detail-image-frame">
-      <img alt="example" [src]="warranty.imagePath"/>
+      <img alt="example" [src]="warranty.imagePath" />
     </div>
   </div>
-  <div nz-col class="warranty-detail-content" nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="14" nzXXl="16">
+  <div
+    nz-col
+    class="warranty-detail-content"
+    nzXs="24"
+    nzSm="24"
+    nzMd="24"
+    nzLg="24"
+    nzXl="14"
+    nzXXl="16">
     <h1>{{ warranty.productName }}</h1>
     <h4><span style="font-weight: bolder">EAN: </span> {{ warranty.ean }}</h4>
-    <h4><span style="font-weight: bolder">Серийный Номер: </span> {{ warranty.sn }}</h4>
-    <h4 class="warranty-detail-description" style="font-weight: bolder">Описание:</h4>
+    <h4>
+      <span style="font-weight: bolder">Серийный Номер: </span>
+      {{ warranty.sn }}
+    </h4>
+    <h4 class="warranty-detail-description" style="font-weight: bolder">
+      Описание:
+    </h4>
     <div id="description">
       <p>{{ warranty.description }}</p>
     </div>
     <h2 style="font-weight: bold">О Гарантии</h2>
-    <h4><span style="font-weight: bolder">Тип гарантии: </span> {{ warranty.history[warranty.history.length-1].type }} (<a href="#">детали</a>) </h4>
-    <h4 [title]="warranty.history[warranty.history.length-1].purchaseDate | date: 'medium'"><span style="font-weight: bolder">Дата покупки: </span> {{ warranty.history[warranty.history.length-1].purchaseDate | date:'short' }}</h4>
-    <h4 [title]="warranty.history[warranty.history.length-1].expiryDate | date: 'medium'"><span style="font-weight: bolder">Гарантийный срок до: </span> {{ warranty.history[warranty.history.length-1].expiryDate | date: 'short' }}</h4>
-    <h4><span style="font-weight: bolder">Продление гарантии: </span> {{ warranty.history[warranty.history.length-1].status }}</h4>
+    <h4>
+      <span style="font-weight: bolder">Тип гарантии: </span>
+      {{ warranty.history[warranty.history.length - 1].type }} (<a href="#"
+        >детали</a
+      >)
+    </h4>
+    <h4
+      [title]="
+        warranty.history[warranty.history.length - 1].purchaseDate
+          | date: 'medium'
+      ">
+      <span style="font-weight: bolder">Дата покупки: </span>
+      {{
+        warranty.history[warranty.history.length - 1].purchaseDate
+          | date: 'short'
+      }}
+    </h4>
+    <h4
+      [title]="
+        warranty.history[warranty.history.length - 1].expiryDate
+          | date: 'medium'
+      ">
+      <span style="font-weight: bolder">Гарантийный срок до: </span>
+      {{
+        warranty.history[warranty.history.length - 1].expiryDate | date: 'short'
+      }}
+    </h4>
+    <h4>
+      <span style="font-weight: bolder">Продление гарантии: </span>
+      {{ warranty.history[warranty.history.length - 1].status }}
+    </h4>
     <h4>
       <span style="font-weight: bolder">Статус: </span>
-      <nz-tag *ngIf="!warranty.history[warranty.history.length-1].valid" [nzColor]="'red'">истекла</nz-tag>
-      <nz-tag *ngIf="warranty.history[warranty.history.length-1].valid" [nzColor]="'green'">действительна</nz-tag>
+      <nz-tag
+        *ngIf="!warranty.history[warranty.history.length - 1].valid"
+        [nzColor]="'red'"
+        >истекла</nz-tag
+      >
+      <nz-tag
+        *ngIf="warranty.history[warranty.history.length - 1].valid"
+        [nzColor]="'green'"
+        >действительна</nz-tag
+      >
     </h4>
   </div>
 </div>

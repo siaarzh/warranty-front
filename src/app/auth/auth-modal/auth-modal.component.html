@@ -3,8 +3,7 @@
   nzTitle="Вход"
   (nzOnCancel)="handleCancel()"
   (nzAfterOpen)="onAuthModalOpen()"
-  [nzFooter]="null"
->
+  [nzFooter]="null">
   <div>
     <nz-tabset [(nzSelectedIndex)]="selectedAuthModalTab">
       <!-- OTP VERIFICATION LOGIN FORM -->
@@ -14,7 +13,9 @@
           <nz-form-item>
             <div nz-row>
               <nz-form-label [nzSpan]="5" nzOffset="1">Моб. ном.</nz-form-label>
-              <nz-form-control [nzSpan]="17" nzErrorTip="Введите номер мобильного телефона">
+              <nz-form-control
+                [nzSpan]="17"
+                nzErrorTip="Введите номер мобильного телефона">
                 <nz-input-group nzPrefixIcon="mobile" [nzSuffix]="resetForm">
                   <input
                     #PhoneInput
@@ -25,19 +26,17 @@
                     placeholder="+7 (777) 111 7777"
                     [imask]="{ mask: '+{7} (000) 000 0000' }"
                     [unmask]="true"
-                    (keydown.enter)="onPhoneInputEnterPressed($event)"
-                  />
+                    (keydown.enter)="onPhoneInputEnterPressed($event)" />
                 </nz-input-group>
                 <ng-template #resetForm>
                   <i
-                  nz-icon
-                  nz-tooltip
-                  class="ant-input-clear-icon"
-                  nzTheme="fill"
-                  nzType="close-circle"
-                  *ngIf="authOTPForm.controls.phone.value"
-                  (click)="onReset()"
-                  ></i>
+                    nz-icon
+                    nz-tooltip
+                    class="ant-input-clear-icon"
+                    nzTheme="fill"
+                    nzType="close-circle"
+                    *ngIf="authOTPForm.controls.phone.value"
+                    (click)="onReset()"></i>
                 </ng-template>
               </nz-form-control>
             </div>
@@ -54,8 +53,7 @@
                       nzBlock
                       nzType="primary"
                       nzSize="large"
-                      [disabled]="authOTPForm.get('phone').invalid"
-                    >
+                      [disabled]="authOTPForm.get('phone').invalid">
                       Запросить СМС код
                     </button>
                   </div>
@@ -70,10 +68,15 @@
                     <nz-input-group nzPrefixIcon="unlock">
                       <div
                         nz-row
-                        nzType="flex"
-                        [nzGutter]="{ xs: 16, sm: 8, md: 8, lg: 8, xl: 8, xxl: 8 }"
-                        nzJustify="start"
-                      >
+                        [nzGutter]="{
+                          xs: 16,
+                          sm: 8,
+                          md: 8,
+                          lg: 8,
+                          xl: 8,
+                          xxl: 8
+                        }"
+                        nzJustify="start">
                         <div nz-col [nzSpan]="24">
                           <input
                             #OTPInput
@@ -85,8 +88,7 @@
                             placeholder="1234"
                             [imask]="{ mask: '0000' }"
                             (keydown.enter)="onOTPInputEnterPressed($event)"
-                            style="padding-left: 32px"
-                          />
+                            style="padding-left: 32px" />
                         </div>
                       </div>
                     </nz-input-group>
@@ -98,12 +100,12 @@
                       nzBlock
                       nzType="primary"
                       (click)="getOTP()"
-                      [disabled]="OTPTimerStarted"
-                    >
+                      [disabled]="OTPTimerStarted">
                       <i nz-icon nzType="reload"></i>
                       {{
                         OTPTimerStarted
-                          ? 'повтор через 0:' + OTPTimeLeft.toString().padStart(2, '0')
+                          ? 'повтор через 0:' +
+                            OTPTimeLeft.toString().padStart(2, '0')
                           : 'повторный запрос'
                       }}
                     </button>
@@ -113,13 +115,14 @@
             </div>
           </nz-form-item>
           <nz-form-item *ngIf="invalidOTP">
-            <div
-              nz-row
-            >
+            <div nz-row>
               <nz-form-control nzSpan="22" nzOffset="1">
                 <div nz-row>
                   <div nz-col nzSpan="24">
-                    <nz-alert nzType="error" nzMessage="Неверный СМС код, повторите попытку." nzShowIcon></nz-alert>
+                    <nz-alert
+                      nzType="error"
+                      nzMessage="Неверный СМС код, повторите попытку."
+                      nzShowIcon></nz-alert>
                   </div>
                 </div>
               </nz-form-control>
@@ -127,7 +130,9 @@
           </nz-form-item>
           <nz-form-item *ngIf="OTPRequested">
             <div nz-row>
-              <nz-form-control [nzXs]="{ span: 22, offset: 0 }" [nzSm]="{ span: 22, offset: 1 }">
+              <nz-form-control
+                [nzXs]="{ span: 22, offset: 0 }"
+                [nzSm]="{ span: 22, offset: 1 }">
                 <div nz-row>
                   <div nz-col>
                     <button
@@ -137,8 +142,7 @@
                       nzSize="large"
                       (click)="onSubmit()"
                       [disabled]="authOTPForm.invalid"
-                      [nzLoading]="isLoggingIn"
-                    >
+                      [nzLoading]="isLoggingIn">
                       Войти
                     </button>
                   </div>
@@ -166,14 +170,22 @@
           <nz-form-item>
             <nz-form-control nzErrorTip="Please input your username!">
               <nz-input-group nzPrefixIcon="user">
-                <input type="text" nz-input formControlName="email" placeholder="Логин или номер тел." />
+                <input
+                  type="text"
+                  nz-input
+                  formControlName="email"
+                  placeholder="Логин или номер тел." />
               </nz-input-group>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-control nzErrorTip="Please input your Password!">
               <nz-input-group nzPrefixIcon="lock">
-                <input type="password" nz-input formControlName="password" placeholder="Пароль" />
+                <input
+                  type="password"
+                  nz-input
+                  formControlName="password"
+                  placeholder="Пароль" />
               </nz-input-group>
             </nz-form-control>
           </nz-form-item>
@@ -185,13 +197,27 @@
       <nz-tab nzTitle="Соцсети" nzDisabled>
         <div class="social-login">
           <nz-form-item>
-            <button id="google-btn" nzBlock nz-button [nzSize]="'large'" nzType="default">
-              <img src="../../../assets/google_logo.svg" alt="google_login" />Войти с помощью Google
+            <button
+              id="google-btn"
+              nzBlock
+              nz-button
+              [nzSize]="'large'"
+              nzType="default">
+              <img
+                src="../../../assets/google_logo.svg"
+                alt="google_login" />Войти с помощью Google
             </button>
           </nz-form-item>
           <nz-form-item id="fb-form-button">
-            <button id="fb-btn" nzBlock nz-button [nzSize]="'large'" nzType="default">
-              <img src="../../../assets/fb_logo.svg" alt="facebook_login" />Войти с помощью Facebook
+            <button
+              id="fb-btn"
+              nzBlock
+              nz-button
+              [nzSize]="'large'"
+              nzType="default">
+              <img
+                src="../../../assets/fb_logo.svg"
+                alt="facebook_login" />Войти с помощью Facebook
             </button>
           </nz-form-item>
         </div>

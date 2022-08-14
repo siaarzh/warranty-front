@@ -1,17 +1,21 @@
 <div id="nav">
   <nz-header>
-    <div class="header-content" nz-row nzType="flex" nzJustify="space-between">
+    <div class="header-content" nz-row nzJustify="space-between">
       <div
         nz-col
         nzSpan="4"
-        class="ant-col ant-col-xs-20 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 ant-col-xl-5 ant-col-xxl-6"
-      >
+        class="ant-col ant-col-xs-20 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 ant-col-xl-5 ant-col-xxl-6">
         <h2 class="header-menu-logo" routerLink="./main">
-          <img src="../assets/logo_v4_icon.svg" alt="logo" /><span>warrantify.me</span>
+          <img src="../assets/logo_v4_icon.svg" alt="logo" /><span
+            >warrantify.me</span
+          >
         </h2>
       </div>
 
-      <div nz-col class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0" style="height: 66px">
+      <div
+        nz-col
+        class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0"
+        style="height: 66px">
         <button
           class="hamburger hamburger--squeeze"
           (click)="toggleMenu()"
@@ -21,21 +25,46 @@
           nzTrigger="click"
           [nzBackdrop]="false"
           [nzDropdownMenu]="menu"
-          nzPlacement="bottomRight"
-        >
+          nzPlacement="bottomRight">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
         </button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
-          <ul nz-menu class="header-menu" >
-            <li nz-menu-item routerLink="./main" routerLinkActive="ant-menu-item-selected">главная</li>
-            <li nz-menu-item routerLink="./howitworks" routerLinkActive="ant-menu-item-selected">как это работает</li>
-            <li nz-menu-item routerLink="./about" routerLinkActive="ant-menu-item-selected">о нас</li>
-            <li nz-menu-item routerLink="./contact" routerLinkActive="ant-menu-item-selected">контакты</li>
-            <li nz-menu-item *ngIf="isLoggedIn" routerLink="/console">мои гарантии</li>
+          <ul nz-menu class="header-menu">
+            <li
+              nz-menu-item
+              routerLink="./main"
+              routerLinkActive="ant-menu-item-selected">
+              главная
+            </li>
+            <li
+              nz-menu-item
+              routerLink="./howitworks"
+              routerLinkActive="ant-menu-item-selected">
+              как это работает
+            </li>
+            <li
+              nz-menu-item
+              routerLink="./about"
+              routerLinkActive="ant-menu-item-selected">
+              о нас
+            </li>
+            <li
+              nz-menu-item
+              routerLink="./contact"
+              routerLinkActive="ant-menu-item-selected">
+              контакты
+            </li>
+            <li nz-menu-item *ngIf="isLoggedIn" routerLink="/console">
+              мои гарантии
+            </li>
             <li nz-menu-item class="list-item--button">
-              <button nz-button class="login-button" nzType="default" (click)="onLoginLogout()">
+              <button
+                nz-button
+                class="login-button"
+                nzType="default"
+                (click)="onLoginLogout()">
                 {{ isLoggedIn ? 'выход' : 'вход' }}
               </button>
             </li>
@@ -46,22 +75,50 @@
       <div
         nz-col
         nzSpan="12"
-        class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-14 ant-col-lg-16 ant-col-xl-17 ant-col-xxl-16"
-      >
-        <ul nz-menu class="header-menu" [nzTheme]="'light'" [nzMode]="'horizontal'">
-          <li nz-menu-item routerLink="./main" routerLinkActive="ant-menu-item-selected">главная</li>
-          <li nz-menu-item routerLink="./howitworks" routerLinkActive="ant-menu-item-selected">как это работает</li>
-          <li nz-menu-item routerLink="./about" routerLinkActive="ant-menu-item-selected">о нас</li>
-          <li nz-menu-item routerLink="./contact" routerLinkActive="ant-menu-item-selected">контакты</li>
-          <li nz-menu-item *ngIf="isLoggedIn" routerLink="/console">мои гарантии</li>
+        class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-14 ant-col-lg-16 ant-col-xl-17 ant-col-xxl-16">
+        <ul
+          nz-menu
+          class="header-menu"
+          [nzTheme]="'light'"
+          [nzMode]="'horizontal'">
+          <li
+            nz-menu-item
+            routerLink="./main"
+            routerLinkActive="ant-menu-item-selected">
+            главная
+          </li>
+          <li
+            nz-menu-item
+            routerLink="./howitworks"
+            routerLinkActive="ant-menu-item-selected">
+            как это работает
+          </li>
+          <li
+            nz-menu-item
+            routerLink="./about"
+            routerLinkActive="ant-menu-item-selected">
+            о нас
+          </li>
+          <li
+            nz-menu-item
+            routerLink="./contact"
+            routerLinkActive="ant-menu-item-selected">
+            контакты
+          </li>
+          <li nz-menu-item *ngIf="isLoggedIn" routerLink="/console">
+            мои гарантии
+          </li>
         </ul>
       </div>
       <div
         nz-col
         nzSpan="2"
-        class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-2 ant-col-lg-2 ant-col-xl-2 ant-col-xxl-2"
-      >
-        <button nz-button class="login-button" nzType="default" (click)="onLoginLogout()">
+        class="nav nav-hide ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-2 ant-col-lg-2 ant-col-xl-2 ant-col-xxl-2">
+        <button
+          nz-button
+          class="login-button"
+          nzType="default"
+          (click)="onLoginLogout()">
           {{ isLoggedIn ? 'выход' : 'вход' }}
         </button>
       </div>

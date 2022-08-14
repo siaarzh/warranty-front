@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { WarrantyService } from '../warranty.service';
+
 import { Warranty } from '../warranty.model';
 
 @Component({

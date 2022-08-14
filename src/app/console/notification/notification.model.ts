@@ -14,7 +14,7 @@ export class Notification {
     dateSent: string,
     messageContent: string,
     warrantyUUID: string = null,
-    isRead = false,
+    isRead = false
   ) {
     this.messageTitle = messageTitle;
     this.messageType = messageType;

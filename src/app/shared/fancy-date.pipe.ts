@@ -1,5 +1,6 @@
 import { Pipe } from '@angular/core';
-import { formatDistance, format } from 'date-fns';
+
+import { format, formatDistance } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
 @Pipe({

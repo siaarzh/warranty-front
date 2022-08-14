@@ -1,11 +1,15 @@
-<div nz-row class="list-header" nzType="flex" nzJustify="space-between" nzAlign="middle">
+<div
+  nz-row
+  class="list-header"
+  nzType="flex"
+  nzJustify="space-between"
+  nzAlign="middle">
   <div nz-col class="list-header-text" nzSpan="20">
     <h3 [title]="category">
       <img
         class="list-icon-disabled"
         src="../../../../assets/warranty_icon.svg"
-        alt=""
-      />
+        alt="" />
       {{ category }}
     </h3>
   </div>
@@ -14,8 +18,11 @@
       <nz-badge
         *ngIf="warranties.length > 0"
         [nzCount]="warranties.length"
-        [nzStyle]="{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }"
-      ></nz-badge>
+        [nzStyle]="{
+          backgroundColor: '#fff',
+          color: '#999',
+          boxShadow: '0 0 0 1px #d9d9d9 inset'
+        }"></nz-badge>
     </h3>
   </div>
 </div>
@@ -47,7 +54,9 @@
     <!--    PROBLEM: CARDS OVERFLOW PAST LIST BORDERS  -->
     <nz-list [nzSplit]="false">
       <nz-list-item *ngFor="let warrantyEl of warranties">
-        <app-warranty-item [warranty]="warrantyEl" [warrantyUUID]="warrantyEl.uuid"></app-warranty-item>
+        <app-warranty-item
+          [warranty]="warrantyEl"
+          [warrantyUUID]="warrantyEl.uuid"></app-warranty-item>
       </nz-list-item>
     </nz-list>
   </div>

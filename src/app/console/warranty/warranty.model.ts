@@ -16,7 +16,7 @@ export class Warranty {
     ean: string,
     sn: string,
     uuid: string,
-    history: WarrantyHistory[] = [],
+    history: WarrantyHistory[] = []
   ) {
     this.productName = productName;
     this.description = description;

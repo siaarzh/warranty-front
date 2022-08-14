@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Notification } from '../notification.model';
-import { NotificationService } from '../notification.service';
 import { ActivatedRoute, Params } from '@angular/router';
+
 import { WarrantyService } from '../../warranty/warranty.service';
+import { NotificationService } from '../notification.service';
+
 import { Warranty } from '../../warranty/warranty.model';
+import { Notification } from '../notification.model';
 
 @Component({
   selector: 'app-notification-message',
@@ -16,11 +18,7 @@ export class NotificationMessageComponent implements OnInit {
   warranty: Warranty;
   warrantyUUID: string;
 
-  constructor(
-    private notificationService: NotificationService,
-    private warrantyService: WarrantyService,
-    private route: ActivatedRoute,
-  ) {}
+  constructor(private notificationService: NotificationService, private warrantyService: WarrantyService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { AuthModalService } from '../../auth/auth-modal/auth-modal.service';
 
 @Component({

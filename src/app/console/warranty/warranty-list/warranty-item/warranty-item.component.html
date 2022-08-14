@@ -1,29 +1,38 @@
-<nz-card class="item-card" [routerLink]="[warrantyUUID]" routerLinkActive="active-card">
+<nz-card
+  class="item-card"
+  [routerLink]="[warrantyUUID]"
+  routerLinkActive="active-card">
   <nz-card-meta
     [nzAvatar]="itemCardAvatar"
     [nzTitle]="itemCardTitle"
-    [nzDescription]="itemCardDescription"
-  >
+    [nzDescription]="itemCardDescription">
     <ng-template #itemCardAvatar>
-        <nz-avatar
-          [nzShape]="'square'"
-          nzSize="large"
-          id="itemCardAvatar"
-          [nzSrc]="warranty.imagePath"
-        ></nz-avatar>
+      <nz-avatar
+        [nzShape]="'square'"
+        nzSize="large"
+        id="itemCardAvatar"
+        [nzSrc]="warranty.imagePath"></nz-avatar>
     </ng-template>
     <ng-template #itemCardTitle>
-      <div id="itemCardTitle" [nzTooltipTitle]="warranty.productName" nzTooltipPlacement="right" nz-tooltip>
+      <div
+        id="itemCardTitle"
+        [nzTooltipTitle]="warranty.productName"
+        nzTooltipPlacement="right"
+        nz-tooltip>
         {{ warranty.productName }}
       </div>
     </ng-template>
     <ng-template #itemCardDescription>
-      <div id="itemCardDescription" >
-        <nz-tag *ngIf="!warranty.history[warranty.history.length - 1].valid" [nzColor]="'red'"
-        >истекла</nz-tag
+      <div id="itemCardDescription">
+        <nz-tag
+          *ngIf="!warranty.history[warranty.history.length - 1].valid"
+          [nzColor]="'red'"
+          >истекла</nz-tag
         >
-        <nz-tag *ngIf="warranty.history[warranty.history.length - 1].valid" [nzColor]="'green'"
-        >действительна</nz-tag
+        <nz-tag
+          *ngIf="warranty.history[warranty.history.length - 1].valid"
+          [nzColor]="'green'"
+          >действительна</nz-tag
         >
       </div>
     </ng-template>

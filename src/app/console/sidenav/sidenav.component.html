@@ -1,19 +1,31 @@
 <div
-  style="position: fixed; display: flex; flex-direction: column; height: 100%; color: #564787; background-color: #E8E8E8"
->
+  style="
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: #564787;
+    background-color: #e8e8e8;
+  ">
   <div style="flex-grow: 1">
-    <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
+    <ul
+      nz-menu
+      nzSelectable="false"
+      nzMode="vertical"
+      [nzInlineCollapsed]="sidenavCollapsed">
       <li
-      routerLink="/"
-      nz-menu-item
-      nz-tooltip
-      [nzTitle]="sidenavCollapsed ? 'На главную' : ''"
-      style="position: relative"
-      >
-        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img height="40" width="40" src="../assets/logo_v4_icon.svg" alt="warrantify-logo"/>
+        routerLink="/"
+        nz-menu-item
+        nz-tooltip
+        [nzTooltipTitle]="sidenavCollapsed ? 'На главную' : ''"
+        style="position: relative">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px">
+          <img
+            height="40"
+            width="40"
+            src="../assets/logo_v4_icon.svg"
+            alt="warrantify-logo" />
         </div>
-
       </li>
 
       <!--   NOTIFICATIONS   -->
@@ -21,23 +33,31 @@
         routerLink="./notification"
         nz-menu-item
         nz-tooltip
-        nzPlacement="right"
+        nzTooltipPlacement="right"
         routerLinkActive="ant-menu-item-selected"
-        [nzTitle]="sidenavCollapsed ? 'Уведомления' : ''"
-        style="position: relative"
-      >
-        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../assets/bell_icon.svg" alt="bell-icon"/>
+        [nzTooltipTitle]="sidenavCollapsed ? 'Уведомления' : ''"
+        style="position: relative">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px">
+          <img
+            class="menu-icon"
+            src="../assets/bell_icon.svg"
+            alt="bell-icon" />
         </div>
-        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+        <div
+          class="menu-item-circle"
+          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
         </div>
         <nz-badge
           nzDot
-          style="position: relative; z-index: 21; transform: translate(160%, -120%); color: #F9F7F7"
-        ></nz-badge>
+          style="
+            position: relative;
+            z-index: 21;
+            transform: translate(160%, -120%);
+            color: #f9f7f7;
+          "></nz-badge>
         <span *ngIf="!sidenavCollapsed">Уведомления</span>
       </li>
       <!--   NOTIFICATIONS   -->
@@ -45,29 +65,41 @@
   </div>
 
   <div style="flex-shrink: 0">
-    <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
+    <ul
+      nz-menu
+      nzSelectable="false"
+      nzMode="vertical"
+      [nzInlineCollapsed]="sidenavCollapsed">
       <!--   WARRANTIES   -->
       <li
         routerLink="./warranty"
         nz-menu-item
         nz-tooltip
-        nzPlacement="right"
+        nzTooltipPlacement="right"
         routerLinkActive="ant-menu-item-selected"
-        [nzTitle]="sidenavCollapsed ? 'Мои гарантии' : ''"
-        style="position: relative"
-      >
-        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../assets/warranty_icon.svg" alt="warranty-icon"/>
+        [nzTooltipTitle]="sidenavCollapsed ? 'Мои гарантии' : ''"
+        style="position: relative">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px">
+          <img
+            class="menu-icon"
+            src="../assets/warranty_icon.svg"
+            alt="warranty-icon" />
         </div>
-        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+        <div
+          class="menu-item-circle"
+          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
         </div>
         <nz-badge
           nzDot
-          style="position: relative; z-index: 21; transform: translate(160%, -120%); color: #F9F7F7"
-        ></nz-badge>
+          style="
+            position: relative;
+            z-index: 21;
+            transform: translate(160%, -120%);
+            color: #f9f7f7;
+          "></nz-badge>
         <span *ngIf="!sidenavCollapsed">Мои гарантии</span>
       </li>
       <!--   WARRANTIES   -->
@@ -76,15 +108,19 @@
       <li
         nz-menu-item
         nz-tooltip
-        nzPlacement="right"
-        [nzTitle]="sidenavCollapsed ? 'Поиск' : ''"
-        style="position: relative;"
-        (click)="onSelectSearch()"
-      >
-        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../assets/search_icon.svg" alt="search-icon"/>
+        nzTooltipPlacement="right"
+        [nzTooltipTitle]="sidenavCollapsed ? 'Поиск' : ''"
+        style="position: relative"
+        (click)="onSelectSearch()">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px">
+          <img
+            class="menu-icon"
+            src="../assets/search_icon.svg"
+            alt="search-icon" />
         </div>
-        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+        <div
+          class="menu-item-circle"
+          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
@@ -95,20 +131,28 @@
     </ul>
   </div>
   <div style="flex-shrink: 0.2">
-    <ul nz-menu nzSelectable="false" nzMode="vertical" [nzInlineCollapsed]="sidenavCollapsed">
+    <ul
+      nz-menu
+      nzSelectable="false"
+      nzMode="vertical"
+      [nzInlineCollapsed]="sidenavCollapsed">
       <!--   HELP   -->
       <li
         nz-menu-item
         nz-tooltip
-        nzPlacement="right"
-        [nzTitle]="sidenavCollapsed ? 'Помошь' : ''"
-        style="position: relative;"
-        (click)="onSelectHelp()"
-      >
-        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
-          <img class="menu-icon" src="../assets/help_icon.svg" alt="search-icon"/>
+        nzTooltipPlacement="right"
+        [nzTooltipTitle]="sidenavCollapsed ? 'Помошь' : ''"
+        style="position: relative"
+        (click)="onSelectHelp()">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px">
+          <img
+            class="menu-icon"
+            src="../assets/help_icon.svg"
+            alt="search-icon" />
         </div>
-        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
+        <div
+          class="menu-item-circle"
+          style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px">
           <svg height="40" width="40">
             <circle cx="20" cy="20" r="20" stroke="none" stroke-width="0" />
           </svg>
@@ -124,20 +168,30 @@
         [nzPopoverContent]="popoverMenu"
         [nzPopoverPlacement]="'rightBottom'"
         [nzPopoverTrigger]="'hover'"
-        nzPlacement="right"
+        nzPopoverPlacement="right"
         routerLink="./profile"
         routerLinkActive="ant-menu-item-selected"
-        style="position: relative;"
-
-      >
-        <div style="z-index: 20; position: absolute; margin: 0 -12px;">
+        style="position: relative">
+        <div style="z-index: 20; position: absolute; margin: 0 -12px">
           <nz-avatar
             nzText="ЖК"
-            style="position: absolute; margin: 4px 4px; color:#564787; background-color:#DBCBD8; font-weight: bolder"
-          >
+            style="
+              position: absolute;
+              margin: 4px 4px;
+              color: #564787;
+              background-color: #dbcbd8;
+              font-weight: bolder;
+            ">
           </nz-avatar>
         </div>
-        <div class="menu-item-circle" style="z-index: 19; width: 40px; position: absolute; margin: 0 -12px"></div>
+        <div
+          class="menu-item-circle"
+          style="
+            z-index: 19;
+            width: 40px;
+            position: absolute;
+            margin: 0 -12px;
+          "></div>
         <span *ngIf="!sidenavCollapsed">Профиль</span>
       </li>
       <!--   PROFILE SUBMENU ICON   -->
@@ -148,7 +202,10 @@
 <!--   PROFILE SUBMENU   -->
 <ng-template #popoverMenu>
   <div>
-    <ul nz-menu class="popover-menu" style="background-color: transparent; border-color: transparent;">
+    <ul
+      nz-menu
+      class="popover-menu"
+      style="background-color: transparent; border-color: transparent">
       <li nz-menu-item nzMatchRouter class="popover-item">
         <a routerLink="./profile">
           <i nz-icon nzType="user"></i>
@@ -164,10 +221,18 @@
       <li nz-menu-item nzDisabled class="popover-item">
         <a (click)="onSwitchNightMode()">
           <i nz-icon>
-            <img class="popover-icon disabled" width="14" src="../assets/night_mode_icon.svg" alt="night-mode-icon"/>
+            <img
+              class="popover-icon disabled"
+              width="14"
+              src="../assets/night_mode_icon.svg"
+              alt="night-mode-icon" />
           </i>
           Включить {{ nightModeText }} режим
-          <nz-switch nzDisabled [ngModel]="nightMode" nzSize="small" style="margin-left: 10px"></nz-switch>
+          <nz-switch
+            nzDisabled
+            [ngModel]="nightMode"
+            nzSize="small"
+            style="margin-left: 10px"></nz-switch>
         </a>
       </li>
       <li nz-menu-item nzMatchRouter class="popover-item">
@@ -178,9 +243,7 @@
       </li>
       <li nz-menu-divider></li>
     </ul>
-    <p style="font-weight: bolder; margin-bottom: 0">
-      Жак Кусто
-    </p>
+    <p style="font-weight: bolder; margin-bottom: 0">Жак Кусто</p>
   </div>
 </ng-template>
 <!--   PROFILE SUBMENU   -->

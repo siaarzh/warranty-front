@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { WarrantyService } from '../warranty.service';
-import { Warranty } from '../warranty.model';
 import { ActivatedRoute, Params } from '@angular/router';
+
+import { WarrantyService } from '../warranty.service';
+
+import { Warranty } from '../warranty.model';
 
 @Component({
   selector: 'app-warranty-detail',

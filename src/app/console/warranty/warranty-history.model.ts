@@ -6,14 +6,7 @@ export class WarrantyHistory {
   public valid: boolean;
   public expiryDate: Date;
 
-  constructor(
-    updateDate: string,
-    status: string,
-    type: string,
-    purchaseDate: string,
-    extended: boolean,
-    expiryDate: string,
-  ) {
+  constructor(updateDate: string, status: string, type: string, purchaseDate: string, extended: boolean, expiryDate: string) {
     this.updateDate = new Date(Date.parse(updateDate));
     this.status = status;
     this.type = type;

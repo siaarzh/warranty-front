@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Notification } from './notification.model';
 
 @Injectable({ providedIn: 'root' })
@@ -12,7 +13,7 @@ export class NotificationService {
       `
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истекла. Вы можете удалить или архивировать этот артикуль.</p>
         `,
-      '34009b55-6cef-442b-9917-114d02f9d929',
+      '34009b55-6cef-442b-9917-114d02f9d929'
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -23,7 +24,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (30 дней)',
@@ -33,7 +34,7 @@ export class NotificationService {
       `
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 30 дней.</p>
         `,
-      '34009b55-6cef-442b-9917-114d02f9d929',
+      '34009b55-6cef-442b-9917-114d02f9d929'
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -44,7 +45,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -55,7 +56,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -66,7 +67,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -77,7 +78,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -88,7 +89,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -99,7 +100,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -110,7 +111,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -121,7 +122,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -132,7 +133,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
     new Notification(
       'Гарантия "MICROSOFT Xbox One Wireless Controller - White" истекает (7 дней)',
@@ -143,7 +144,7 @@ export class NotificationService {
         <p>Гарантия <b>"MICROSOFT Xbox One Wireless Controller - White"</b> истечет через 7 дней.</p>
         `,
       '34009b55-6cef-442b-9917-114d02f9d929',
-      true,
+      true
     ),
   ];
 
